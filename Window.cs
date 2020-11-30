@@ -104,47 +104,47 @@ namespace MiniProyecto2
     };
     private readonly float[] verticesPatas = {
         // positions          // normals           // texture coords
-        -0.10f, -0.10f, -0.10f,  0.0f,  0.0f, -1.0f,  0.0f,  0.0f,
-         0.10f, -0.10f, -0.10f,  0.0f,  0.0f, -1.0f,  1.0f,  0.0f,
-         0.10f,  0.10f, -0.10f,  0.0f,  0.0f, -1.0f,  1.0f,  1.0f,
-         0.10f,  0.10f, -0.10f,  0.0f,  0.0f, -1.0f,  1.0f,  1.0f,
-        -0.10f,  0.10f, -0.10f,  0.0f,  0.0f, -1.0f,  0.0f,  1.0f,
-        -0.10f, -0.10f, -0.10f,  0.0f,  0.0f, -1.0f,  0.0f,  0.0f,
+        -0.20f, -0.20f, -0.20f,  0.0f,  0.0f, -1.0f,  0.0f,  0.0f,
+         0.20f, -0.20f, -0.20f,  0.0f,  0.0f, -1.0f,  1.0f,  0.0f,
+         0.20f,  0.20f, -0.20f,  0.0f,  0.0f, -1.0f,  1.0f,  1.0f,
+         0.20f,  0.20f, -0.20f,  0.0f,  0.0f, -1.0f,  1.0f,  1.0f,
+        -0.20f,  0.20f, -0.20f,  0.0f,  0.0f, -1.0f,  0.0f,  1.0f,
+        -0.20f, -0.20f, -0.20f,  0.0f,  0.0f, -1.0f,  0.0f,  0.0f,
 
-        -0.10f, -0.10f,  0.10f,  0.0f,  0.0f,  1.0f,  0.0f,  0.0f,
-         0.10f, -0.10f,  0.10f,  0.0f,  0.0f,  1.0f,  1.0f,  0.0f,
-         0.10f,  0.10f,  0.10f,  0.0f,  0.0f,  1.0f,  1.0f,  1.0f,
-         0.10f,  0.10f,  0.10f,  0.0f,  0.0f,  1.0f,  1.0f,  1.0f,
-        -0.10f,  0.10f,  0.10f,  0.0f,  0.0f,  1.0f,  0.0f,  1.0f,
-        -0.10f, -0.10f,  0.10f,  0.0f,  0.0f,  1.0f,  0.0f,  0.0f,
+        -0.20f, -0.20f,  0.20f,  0.0f,  0.0f,  1.0f,  0.0f,  0.0f,
+         0.20f, -0.20f,  0.20f,  0.0f,  0.0f,  1.0f,  1.0f,  0.0f,
+         0.20f,  0.20f,  0.20f,  0.0f,  0.0f,  1.0f,  1.0f,  1.0f,
+         0.20f,  0.20f,  0.20f,  0.0f,  0.0f,  1.0f,  1.0f,  1.0f,
+        -0.20f,  0.20f,  0.20f,  0.0f,  0.0f,  1.0f,  0.0f,  1.0f,
+        -0.20f, -0.20f,  0.20f,  0.0f,  0.0f,  1.0f,  0.0f,  0.0f,
 
-        -0.10f,  0.10f,  0.10f, -1.0f,  0.0f,  0.0f,  1.0f,  0.0f,
-        -0.10f,  0.10f, -0.10f, -1.0f,  0.0f,  0.0f,  1.0f,  1.0f,
-        -0.10f, -0.10f, -0.10f, -1.0f,  0.0f,  0.0f,  0.0f,  1.0f,
-        -0.10f, -0.10f, -0.10f, -1.0f,  0.0f,  0.0f,  0.0f,  1.0f,
-        -0.10f, -0.10f,  0.10f, -1.0f,  0.0f,  0.0f,  0.0f,  0.0f,
-        -0.10f,  0.10f,  0.10f, -1.0f,  0.0f,  0.0f,  1.0f,  0.0f,
+        -0.20f,  0.20f,  0.20f, -1.0f,  0.0f,  0.0f,  1.0f,  0.0f,
+        -0.20f,  0.20f, -0.20f, -1.0f,  0.0f,  0.0f,  1.0f,  1.0f,
+        -0.20f, -0.20f, -0.20f, -1.0f,  0.0f,  0.0f,  0.0f,  1.0f,
+        -0.20f, -0.20f, -0.20f, -1.0f,  0.0f,  0.0f,  0.0f,  1.0f,
+        -0.20f, -0.20f,  0.20f, -1.0f,  0.0f,  0.0f,  0.0f,  0.0f,
+        -0.20f,  0.20f,  0.20f, -1.0f,  0.0f,  0.0f,  1.0f,  0.0f,
 
-         0.10f,  0.10f,  0.10f,  1.0f,  0.0f,  0.0f,  1.0f,  0.0f,
-         0.10f,  0.10f, -0.10f,  1.0f,  0.0f,  0.0f,  1.0f,  1.0f,
-         0.10f, -0.10f, -0.10f,  1.0f,  0.0f,  0.0f,  0.0f,  1.0f,
-         0.10f, -0.10f, -0.10f,  1.0f,  0.0f,  0.0f,  0.0f,  1.0f,
-         0.10f, -0.10f,  0.10f,  1.0f,  0.0f,  0.0f,  0.0f,  0.0f,
-         0.10f,  0.10f,  0.10f,  1.0f,  0.0f,  0.0f,  1.0f,  0.0f,
+         0.20f,  0.20f,  0.20f,  1.0f,  0.0f,  0.0f,  1.0f,  0.0f,
+         0.20f,  0.20f, -0.20f,  1.0f,  0.0f,  0.0f,  1.0f,  1.0f,
+         0.20f, -0.20f, -0.20f,  1.0f,  0.0f,  0.0f,  0.0f,  1.0f,
+         0.20f, -0.20f, -0.20f,  1.0f,  0.0f,  0.0f,  0.0f,  1.0f,
+         0.20f, -0.20f,  0.20f,  1.0f,  0.0f,  0.0f,  0.0f,  0.0f,
+         0.20f,  0.20f,  0.20f,  1.0f,  0.0f,  0.0f,  1.0f,  0.0f,
 
-        -0.10f, -0.10f, -0.10f,  0.0f, -1.0f,  0.0f,  0.0f,  1.0f,
-         0.10f, -0.10f, -0.10f,  0.0f, -1.0f,  0.0f,  1.0f,  1.0f,
-         0.10f, -0.10f,  0.10f,  0.0f, -1.0f,  0.0f,  1.0f,  0.0f,
-         0.10f, -0.10f,  0.10f,  0.0f, -1.0f,  0.0f,  1.0f,  0.0f,
-        -0.10f, -0.10f,  0.10f,  0.0f, -1.0f,  0.0f,  0.0f,  0.0f,
-        -0.10f, -0.10f, -0.10f,  0.0f, -1.0f,  0.0f,  0.0f,  1.0f,
+        -0.20f, -0.20f, -0.20f,  0.0f, -1.0f,  0.0f,  0.0f,  1.0f,
+         0.20f, -0.20f, -0.20f,  0.0f, -1.0f,  0.0f,  1.0f,  1.0f,
+         0.20f, -0.20f,  0.20f,  0.0f, -1.0f,  0.0f,  1.0f,  0.0f,
+         0.20f, -0.20f,  0.20f,  0.0f, -1.0f,  0.0f,  1.0f,  0.0f,
+        -0.20f, -0.20f,  0.20f,  0.0f, -1.0f,  0.0f,  0.0f,  0.0f,
+        -0.20f, -0.20f, -0.20f,  0.0f, -1.0f,  0.0f,  0.0f,  1.0f,
 
-        -0.10f,  0.10f, -0.10f,  0.0f,  1.0f,  0.0f,  0.0f,  1.0f,
-         0.10f,  0.10f, -0.10f,  0.0f,  1.0f,  0.0f,  1.0f,  1.0f,
-         0.10f,  0.10f,  0.10f,  0.0f,  1.0f,  0.0f,  1.0f,  0.0f,
-         0.10f,  0.10f,  0.10f,  0.0f,  1.0f,  0.0f,  1.0f,  0.0f,
-        -0.10f,  0.10f,  0.10f,  0.0f,  1.0f,  0.0f,  0.0f,  0.0f,
-        -0.10f,  0.10f, -0.10f,  0.0f,  1.0f,  0.0f,  0.0f,  1.0f
+        -0.20f,  0.20f, -0.20f,  0.0f,  1.0f,  0.0f,  0.0f,  1.0f,
+         0.20f,  0.20f, -0.20f,  0.0f,  1.0f,  0.0f,  1.0f,  1.0f,
+         0.20f,  0.20f,  0.20f,  0.0f,  1.0f,  0.0f,  1.0f,  0.0f,
+         0.20f,  0.20f,  0.20f,  0.0f,  1.0f,  0.0f,  1.0f,  0.0f,
+        -0.20f,  0.20f,  0.20f,  0.0f,  1.0f,  0.0f,  0.0f,  0.0f,
+        -0.20f,  0.20f, -0.20f,  0.0f,  1.0f,  0.0f,  0.0f,  1.0f
     };
 
         private readonly Vector3 _lightPos = new Vector3(1.2f, 1.0f, 2.0f);
@@ -159,7 +159,7 @@ namespace MiniProyecto2
         private int _vertexBufferObject4;
         private int _vaoModel4;
         private int _vertexBufferObject5;
-        private int _vaoModel4;
+        private int _vaoModel5;
         private Shader _lampShader;
         private Shader _lightingShader;
         private Texture _diffuseMap;
@@ -327,8 +327,8 @@ namespace MiniProyecto2
                 creeperHead *= Matrix4.CreateTranslation(0.0f,-10.0f,0.0f);
                 creeperBody1 *= Matrix4.CreateTranslation(0.0f,-10.0f,0.0f);
                 creeperBody2 *= Matrix4.CreateTranslation(0.0f,-10.7f,0.0f);
-                creeperBody3 *= Matrix4.CreateTranslation(0.0f,-11.4f,0.0f);
-                creeperPata1 *= Matrix4.CreateTranslation(-7.65f,-2.075f, 0.35f);
+                creeperBody3 *= Matrix4.CreateTranslation(0.0f,-9.075f,0.0f);
+                creeperPata1 *= Matrix4.CreateTranslation(-7.65f,-2.375f, 0.35f);
                 flag = true;
             }
             else {
@@ -336,26 +336,32 @@ namespace MiniProyecto2
                     creeperHead *= Matrix4.CreateTranslation(0.0f,(float)GLFW.GetTime()-10.0f,0.0f);
                     creeperBody1 *= Matrix4.CreateTranslation(0.0f,-10.0f,0.0f);
                     creeperBody2 *= Matrix4.CreateTranslation(0.0f,-10.7f,0.0f);
-                    creeperBody3 *= Matrix4.CreateTranslation(0.0f,-11.4f,0.0f);
-                    creeperPata1 *= Matrix4.CreateTranslation(-7.65f,-2.075f, 0.35f);
+                    creeperBody3 *= Matrix4.CreateTranslation(0.0f,-9.075f,0.0f);
+                    creeperPata1 *= Matrix4.CreateTranslation(-7.65f,-2.375f, 0.35f);
                 }
                 else if(GLFW.GetTime()<18.0) {
                     creeperBody1 *= Matrix4.CreateTranslation(0.0f,(float)GLFW.GetTime()-18.675f,0.0f);
                     creeperBody2 *= Matrix4.CreateTranslation(0.0f,-10.7f,0.0f);
-                    creeperBody3 *= Matrix4.CreateTranslation(0.0f,-11.4f,0.0f);
-                    creeperPata1 *= Matrix4.CreateTranslation((float)GLFW.GetTime()-17.65f,-2.075f, 0.35f);
+                    creeperBody3 *= Matrix4.CreateTranslation(0.0f,-9.075f,0.0f);
+                    creeperPata1 *= Matrix4.CreateTranslation((float)GLFW.GetTime()-17.65f,-2.375f, 0.35f);
                 }
                 else if(GLFW.GetTime()<23){
                     creeperBody1 *= Matrix4.CreateTranslation(0.0f,-0.675f,0.0f);
                     creeperBody2 *= Matrix4.CreateTranslation(0.0f,(float)GLFW.GetTime()-24.375f,0.0f);
-                    creeperBody3 *= Matrix4.CreateTranslation(0.0f,-11.4f,0.0f);
-                    creeperPata1 *= Matrix4.CreateTranslation(0.35f,-2.075f, 0.35f);
+                    creeperBody3 *= Matrix4.CreateTranslation(0.0f,-9.075f,0.0f);
+                    creeperPata1 *= Matrix4.CreateTranslation(0.35f,-2.375f, 0.35f);
+                }
+                else if(GLFW.GetTime()<30){ 
+                    creeperBody1 *= Matrix4.CreateTranslation(0.0f,-0.675f,0.0f);
+                    creeperBody2 *= Matrix4.CreateTranslation(0.0f,-1.375f,0.0f);
+                    creeperBody3 *= Matrix4.CreateTranslation(0.0f,(float)GLFW.GetTime()-32.075f,0.0f);
+                    creeperPata1 *= Matrix4.CreateTranslation(0.35f,-2.375f, 0.35f);
                 }
                 else {
                     creeperBody1 *= Matrix4.CreateTranslation(0.0f,-0.675f,0.0f);
                     creeperBody2 *= Matrix4.CreateTranslation(0.0f,-1.375f,0.0f);
                     creeperBody3 *= Matrix4.CreateTranslation(0.0f,-2.075f,0.0f);
-                    creeperPata1 *= Matrix4.CreateTranslation(0.35f,-2.075f, 0.35f);
+                    creeperPata1 *= Matrix4.CreateTranslation(0.35f,-2.375f, 0.35f);
                 }
             }
             //Creeper Face
