@@ -160,6 +160,12 @@ namespace MiniProyecto2
         private int _vaoModel4;
         private int _vertexBufferObject5;
         private int _vaoModel5;
+        private int _vertexBufferObject6;
+        private int _vaoModel6;
+        private int _vertexBufferObject7;
+        private int _vaoModel7;
+        private int _vertexBufferObject8;
+        private int _vaoModel8;
         private Shader _lampShader;
         private Shader _lightingShader;
         private Texture _diffuseMap;
@@ -292,11 +298,57 @@ namespace MiniProyecto2
             var texCoordLocation5 = _lightingShader5.GetAttribLocation("aTexCoords");
             GL.EnableVertexAttribArray(texCoordLocation5);
             GL.VertexAttribPointer(texCoordLocation5, 2, VertexAttribPointerType.Float, false, 8 * sizeof(float), 6 * sizeof(float));
-            //Pata 2
 
-            //Pata 3
+            //Pata 2
+            _vertexBufferObject6 = GL.GenBuffer();
+            GL.BindBuffer(BufferTarget.ArrayBuffer, _vertexBufferObject6);
+            GL.BufferData(BufferTarget.ArrayBuffer, verticesPatas.Length * sizeof(float), verticesPatas , BufferUsageHint.StaticDraw);
+            _vaoModel6 = GL.GenVertexArray();
+            GL.BindVertexArray(_vaoModel5);
+            GL.BindBuffer(BufferTarget.ArrayBuffer, _vertexBufferObject6);
+            var positionLocation6 = _lightingShader5.GetAttribLocation("aPos");
+            GL.EnableVertexAttribArray(positionLocation6);
+            GL.VertexAttribPointer(positionLocation6, 3, VertexAttribPointerType.Float, false, 8 * sizeof(float), 0);
+            var normalLocation6 = _lightingShader5.GetAttribLocation("aNormal");
+            GL.EnableVertexAttribArray(normalLocation6);
+            GL.VertexAttribPointer(normalLocation5, 3, VertexAttribPointerType.Float, false, 8 * sizeof(float), 3 * sizeof(float));
+            var texCoordLocation6 = _lightingShader5.GetAttribLocation("aTexCoords");
+            GL.EnableVertexAttribArray(texCoordLocation6);
+            GL.VertexAttribPointer(texCoordLocation6, 2, VertexAttribPointerType.Float, false, 8 * sizeof(float), 6 * sizeof(float));
 
             //Pata 4
+            _vertexBufferObject8 = GL.GenBuffer();
+            GL.BindBuffer(BufferTarget.ArrayBuffer, _vertexBufferObject8);
+            GL.BufferData(BufferTarget.ArrayBuffer, verticesPatas.Length * sizeof(float), verticesPatas , BufferUsageHint.StaticDraw);
+            _vaoModel8 = GL.GenVertexArray();
+            GL.BindVertexArray(_vaoModel8);
+            GL.BindBuffer(BufferTarget.ArrayBuffer, _vertexBufferObject8);
+            var positionLocation8 = _lightingShader5.GetAttribLocation("aPos");
+            GL.EnableVertexAttribArray(positionLocation8);
+            GL.VertexAttribPointer(positionLocation8, 3, VertexAttribPointerType.Float, false, 8 * sizeof(float), 0);
+            var normalLocation8 = _lightingShader5.GetAttribLocation("aNormal");
+            GL.EnableVertexAttribArray(normalLocation8);
+            GL.VertexAttribPointer(normalLocation8, 3, VertexAttribPointerType.Float, false, 8 * sizeof(float), 3 * sizeof(float));
+            var texCoordLocation8 = _lightingShader5.GetAttribLocation("aTexCoords");
+            GL.EnableVertexAttribArray(texCoordLocation8);
+            GL.VertexAttribPointer(texCoordLocation8, 2, VertexAttribPointerType.Float, false, 8 * sizeof(float), 6 * sizeof(float));
+
+            //Pata 3
+            _vertexBufferObject7 = GL.GenBuffer();
+            GL.BindBuffer(BufferTarget.ArrayBuffer, _vertexBufferObject7);
+            GL.BufferData(BufferTarget.ArrayBuffer, verticesPatas.Length * sizeof(float), verticesPatas , BufferUsageHint.StaticDraw);
+            _vaoModel7 = GL.GenVertexArray();
+            GL.BindVertexArray(_vaoModel7);
+            GL.BindBuffer(BufferTarget.ArrayBuffer, _vertexBufferObject7);
+            var positionLocation7 = _lightingShader5.GetAttribLocation("aPos");
+            GL.EnableVertexAttribArray(positionLocation7);
+            GL.VertexAttribPointer(positionLocation7, 3, VertexAttribPointerType.Float, false, 8 * sizeof(float), 0);
+            var normalLocation7 = _lightingShader5.GetAttribLocation("aNormal");
+            GL.EnableVertexAttribArray(normalLocation7);
+            GL.VertexAttribPointer(normalLocation7, 3, VertexAttribPointerType.Float, false, 8 * sizeof(float), 3 * sizeof(float));
+            var texCoordLocation7 = _lightingShader5.GetAttribLocation("aTexCoords");
+            GL.EnableVertexAttribArray(texCoordLocation7);
+            GL.VertexAttribPointer(texCoordLocation7, 2, VertexAttribPointerType.Float, false, 8 * sizeof(float), 6 * sizeof(float));
 
             //Lighting Cube
             _lampShader = new Shader("C:\\Users\\maqui\\Documents\\CreeperModelaje\\Shaders\\vert.glsl","C:\\Users\\maqui\\Documents\\CreeperModelaje\\Shaders\\frag.glsl");
@@ -323,12 +375,19 @@ namespace MiniProyecto2
             Matrix4 creeperBody2 = Matrix4.Identity;
             Matrix4 creeperBody3 = Matrix4.Identity;
             Matrix4 creeperPata1 = Matrix4.Identity;
+            Matrix4 creeperPata2 = Matrix4.Identity;
+            Matrix4 creeperPata3 = Matrix4.Identity;
+            Matrix4 creeperPata4 = Matrix4.Identity;
+
             if(!flag) {
                 creeperHead *= Matrix4.CreateTranslation(0.0f,-10.0f,0.0f);
                 creeperBody1 *= Matrix4.CreateTranslation(0.0f,-10.0f,0.0f);
                 creeperBody2 *= Matrix4.CreateTranslation(0.0f,-10.7f,0.0f);
                 creeperBody3 *= Matrix4.CreateTranslation(0.0f,-9.075f,0.0f);
                 creeperPata1 *= Matrix4.CreateTranslation(-7.65f,-2.375f, 0.35f);
+                creeperPata2 *= Matrix4.CreateTranslation(-7.65f,-2.375f, -0.35f);
+                creeperPata3 *= Matrix4.CreateTranslation(7.65f,-2.375f, 0.35f);
+                creeperPata4 *= Matrix4.CreateTranslation(7.65f,-2.375f, -0.35f);
                 flag = true;
             }
             else {
@@ -338,30 +397,45 @@ namespace MiniProyecto2
                     creeperBody2 *= Matrix4.CreateTranslation(0.0f,-10.7f,0.0f);
                     creeperBody3 *= Matrix4.CreateTranslation(0.0f,-9.075f,0.0f);
                     creeperPata1 *= Matrix4.CreateTranslation(-7.65f,-2.375f, 0.35f);
+                    creeperPata2 *= Matrix4.CreateTranslation(-7.65f,-2.375f, -0.35f);
+                    creeperPata3 *= Matrix4.CreateTranslation(7.65f,-2.375f, 0.35f);
+                    creeperPata4 *= Matrix4.CreateTranslation(7.65f,-2.375f, -0.35f);
                 }
                 else if(GLFW.GetTime()<18.0) {
                     creeperBody1 *= Matrix4.CreateTranslation(0.0f,(float)GLFW.GetTime()-18.675f,0.0f);
                     creeperBody2 *= Matrix4.CreateTranslation(0.0f,-10.7f,0.0f);
                     creeperBody3 *= Matrix4.CreateTranslation(0.0f,-9.075f,0.0f);
                     creeperPata1 *= Matrix4.CreateTranslation((float)GLFW.GetTime()-17.65f,-2.375f, 0.35f);
+                    creeperPata2 *= Matrix4.CreateTranslation(-7.65f,-2.375f, -0.35f);
+                    creeperPata3 *= Matrix4.CreateTranslation(17.65f-(float)GLFW.GetTime(),-2.375f, 0.35f);
+                    creeperPata4 *= Matrix4.CreateTranslation(7.65f,-2.375f, -0.35f);
                 }
                 else if(GLFW.GetTime()<23){
                     creeperBody1 *= Matrix4.CreateTranslation(0.0f,-0.675f,0.0f);
                     creeperBody2 *= Matrix4.CreateTranslation(0.0f,(float)GLFW.GetTime()-24.375f,0.0f);
                     creeperBody3 *= Matrix4.CreateTranslation(0.0f,-9.075f,0.0f);
                     creeperPata1 *= Matrix4.CreateTranslation(0.35f,-2.375f, 0.35f);
+                    creeperPata2 *= Matrix4.CreateTranslation(-7.65f,-2.375f, -0.35f);
+                    creeperPata3 *= Matrix4.CreateTranslation(-0.35f,-2.375f, 0.35f);
+                    creeperPata4 *= Matrix4.CreateTranslation(7.65f,-2.375f, -0.35f);
                 }
                 else if(GLFW.GetTime()<30){ 
                     creeperBody1 *= Matrix4.CreateTranslation(0.0f,-0.675f,0.0f);
                     creeperBody2 *= Matrix4.CreateTranslation(0.0f,-1.375f,0.0f);
                     creeperBody3 *= Matrix4.CreateTranslation(0.0f,(float)GLFW.GetTime()-32.075f,0.0f);
                     creeperPata1 *= Matrix4.CreateTranslation(0.35f,-2.375f, 0.35f);
+                    creeperPata2 *= Matrix4.CreateTranslation(-7.65f,-2.375f, -0.35f);
+                    creeperPata3 *= Matrix4.CreateTranslation(-0.35f,-2.375f, 0.35f);
+                    creeperPata4 *= Matrix4.CreateTranslation(7.65f,-2.375f, -0.35f);
                 }
                 else {
                     creeperBody1 *= Matrix4.CreateTranslation(0.0f,-0.675f,0.0f);
                     creeperBody2 *= Matrix4.CreateTranslation(0.0f,-1.375f,0.0f);
                     creeperBody3 *= Matrix4.CreateTranslation(0.0f,-2.075f,0.0f);
                     creeperPata1 *= Matrix4.CreateTranslation(0.35f,-2.375f, 0.35f);
+                    creeperPata2 *= Matrix4.CreateTranslation(-7.65f,-2.375f, -0.35f);
+                    creeperPata3 *= Matrix4.CreateTranslation(-0.35f,-2.375f, 0.35f);
+                    creeperPata4 *= Matrix4.CreateTranslation(7.65f,-2.375f, -0.35f);
                 }
             }
             //Creeper Face
@@ -442,21 +516,78 @@ namespace MiniProyecto2
 
             //Creeper pata1
             GL.BindVertexArray(_vaoModel5);
-            _diffuseMap4.Use();
-            _specularMap4.Use(TextureUnit.Texture1);
-            _lightingShader4.Use();
-            _lightingShader4.SetMatrix4("model", creeperPata1);
-            _lightingShader4.SetMatrix4("view", _camera.GetViewMatrix());
-            _lightingShader4.SetMatrix4("projection", _camera.GetProjectionMatrix());
-            _lightingShader4.SetVector3("viewPos", _camera.Position);
-            _lightingShader4.SetInt("material.diffuse", 0);
-            _lightingShader4.SetInt("material.specular", 1);
-            _lightingShader4.SetVector3("material.specular", new Vector3(0.8f, 0.8f, 0.8f));
-            _lightingShader4.SetFloat("material.shininess", 32.0f);
-            _lightingShader4.SetVector3("light.position", _lightPos);
-            _lightingShader4.SetVector3("light.ambient", new Vector3(0.7f));
-            _lightingShader4.SetVector3("light.diffuse", new Vector3(0.2f));
-            _lightingShader4.SetVector3("light.specular", new Vector3(1.0f));
+            _diffuseMap5.Use();
+            _specularMap5.Use(TextureUnit.Texture1);
+            _lightingShader5.Use();
+            _lightingShader5.SetMatrix4("model", creeperPata1);
+            _lightingShader5.SetMatrix4("view", _camera.GetViewMatrix());
+            _lightingShader5.SetMatrix4("projection", _camera.GetProjectionMatrix());
+            _lightingShader5.SetVector3("viewPos", _camera.Position);
+            _lightingShader5.SetInt("material.diffuse", 0);
+            _lightingShader5.SetInt("material.specular", 1);
+            _lightingShader5.SetVector3("material.specular", new Vector3(0.8f, 0.8f, 0.8f));
+            _lightingShader5.SetFloat("material.shininess", 32.0f);
+            _lightingShader5.SetVector3("light.position", _lightPos);
+            _lightingShader5.SetVector3("light.ambient", new Vector3(0.7f));
+            _lightingShader5.SetVector3("light.diffuse", new Vector3(0.2f));
+            _lightingShader5.SetVector3("light.specular", new Vector3(1.0f));
+            GL.DrawArrays(PrimitiveType.Triangles, 0, 36);
+
+            //Creeper pata2
+            GL.BindVertexArray(_vaoModel6);
+            _diffuseMap5.Use();
+            _specularMap5.Use(TextureUnit.Texture1);
+            _lightingShader5.Use();
+            _lightingShader5.SetMatrix4("model", creeperPata2);
+            _lightingShader5.SetMatrix4("view", _camera.GetViewMatrix());
+            _lightingShader5.SetMatrix4("projection", _camera.GetProjectionMatrix());
+            _lightingShader5.SetVector3("viewPos", _camera.Position);
+            _lightingShader5.SetInt("material.diffuse", 0);
+            _lightingShader5.SetInt("material.specular", 1);
+            _lightingShader5.SetVector3("material.specular", new Vector3(0.8f, 0.8f, 0.8f));
+            _lightingShader5.SetFloat("material.shininess", 32.0f);
+            _lightingShader5.SetVector3("light.position", _lightPos);
+            _lightingShader5.SetVector3("light.ambient", new Vector3(0.7f));
+            _lightingShader5.SetVector3("light.diffuse", new Vector3(0.2f));
+            _lightingShader5.SetVector3("light.specular", new Vector3(1.0f));
+            GL.DrawArrays(PrimitiveType.Triangles, 0, 36);
+
+            //Creeper pata3
+            GL.BindVertexArray(_vaoModel7);
+            _diffuseMap5.Use();
+            _specularMap5.Use(TextureUnit.Texture1);
+            _lightingShader5.Use();
+            _lightingShader5.SetMatrix4("model", creeperPata3);
+            _lightingShader5.SetMatrix4("view", _camera.GetViewMatrix());
+            _lightingShader5.SetMatrix4("projection", _camera.GetProjectionMatrix());
+            _lightingShader5.SetVector3("viewPos", _camera.Position);
+            _lightingShader5.SetInt("material.diffuse", 0);
+            _lightingShader5.SetInt("material.specular", 1);
+            _lightingShader5.SetVector3("material.specular", new Vector3(0.8f, 0.8f, 0.8f));
+            _lightingShader5.SetFloat("material.shininess", 32.0f);
+            _lightingShader5.SetVector3("light.position", _lightPos);
+            _lightingShader5.SetVector3("light.ambient", new Vector3(0.7f));
+            _lightingShader5.SetVector3("light.diffuse", new Vector3(0.2f));
+            _lightingShader5.SetVector3("light.specular", new Vector3(1.0f));
+            GL.DrawArrays(PrimitiveType.Triangles, 0, 36);
+
+            //Creeper pata4
+            GL.BindVertexArray(_vaoModel8);
+            _diffuseMap5.Use();
+            _specularMap5.Use(TextureUnit.Texture1);
+            _lightingShader5.Use();
+            _lightingShader5.SetMatrix4("model", creeperPata4);
+            _lightingShader5.SetMatrix4("view", _camera.GetViewMatrix());
+            _lightingShader5.SetMatrix4("projection", _camera.GetProjectionMatrix());
+            _lightingShader5.SetVector3("viewPos", _camera.Position);
+            _lightingShader5.SetInt("material.diffuse", 0);
+            _lightingShader5.SetInt("material.specular", 1);
+            _lightingShader5.SetVector3("material.specular", new Vector3(0.8f, 0.8f, 0.8f));
+            _lightingShader5.SetFloat("material.shininess", 32.0f);
+            _lightingShader5.SetVector3("light.position", _lightPos);
+            _lightingShader5.SetVector3("light.ambient", new Vector3(0.7f));
+            _lightingShader5.SetVector3("light.diffuse", new Vector3(0.2f));
+            _lightingShader5.SetVector3("light.specular", new Vector3(1.0f));
             GL.DrawArrays(PrimitiveType.Triangles, 0, 36);
 
             //Light Cube
