@@ -102,6 +102,50 @@ namespace MiniProyecto2
         -0.35f,  0.35f,  0.35f,  0.0f,  1.0f,  0.0f,  0.0f,  0.0f,
         -0.35f,  0.35f, -0.35f,  0.0f,  1.0f,  0.0f,  0.0f,  1.0f
     };
+    private readonly float[] verticesPatas = {
+        // positions          // normals           // texture coords
+        -0.10f, -0.10f, -0.10f,  0.0f,  0.0f, -1.0f,  0.0f,  0.0f,
+         0.10f, -0.10f, -0.10f,  0.0f,  0.0f, -1.0f,  1.0f,  0.0f,
+         0.10f,  0.10f, -0.10f,  0.0f,  0.0f, -1.0f,  1.0f,  1.0f,
+         0.10f,  0.10f, -0.10f,  0.0f,  0.0f, -1.0f,  1.0f,  1.0f,
+        -0.10f,  0.10f, -0.10f,  0.0f,  0.0f, -1.0f,  0.0f,  1.0f,
+        -0.10f, -0.10f, -0.10f,  0.0f,  0.0f, -1.0f,  0.0f,  0.0f,
+
+        -0.10f, -0.10f,  0.10f,  0.0f,  0.0f,  1.0f,  0.0f,  0.0f,
+         0.10f, -0.10f,  0.10f,  0.0f,  0.0f,  1.0f,  1.0f,  0.0f,
+         0.10f,  0.10f,  0.10f,  0.0f,  0.0f,  1.0f,  1.0f,  1.0f,
+         0.10f,  0.10f,  0.10f,  0.0f,  0.0f,  1.0f,  1.0f,  1.0f,
+        -0.10f,  0.10f,  0.10f,  0.0f,  0.0f,  1.0f,  0.0f,  1.0f,
+        -0.10f, -0.10f,  0.10f,  0.0f,  0.0f,  1.0f,  0.0f,  0.0f,
+
+        -0.10f,  0.10f,  0.10f, -1.0f,  0.0f,  0.0f,  1.0f,  0.0f,
+        -0.10f,  0.10f, -0.10f, -1.0f,  0.0f,  0.0f,  1.0f,  1.0f,
+        -0.10f, -0.10f, -0.10f, -1.0f,  0.0f,  0.0f,  0.0f,  1.0f,
+        -0.10f, -0.10f, -0.10f, -1.0f,  0.0f,  0.0f,  0.0f,  1.0f,
+        -0.10f, -0.10f,  0.10f, -1.0f,  0.0f,  0.0f,  0.0f,  0.0f,
+        -0.10f,  0.10f,  0.10f, -1.0f,  0.0f,  0.0f,  1.0f,  0.0f,
+
+         0.10f,  0.10f,  0.10f,  1.0f,  0.0f,  0.0f,  1.0f,  0.0f,
+         0.10f,  0.10f, -0.10f,  1.0f,  0.0f,  0.0f,  1.0f,  1.0f,
+         0.10f, -0.10f, -0.10f,  1.0f,  0.0f,  0.0f,  0.0f,  1.0f,
+         0.10f, -0.10f, -0.10f,  1.0f,  0.0f,  0.0f,  0.0f,  1.0f,
+         0.10f, -0.10f,  0.10f,  1.0f,  0.0f,  0.0f,  0.0f,  0.0f,
+         0.10f,  0.10f,  0.10f,  1.0f,  0.0f,  0.0f,  1.0f,  0.0f,
+
+        -0.10f, -0.10f, -0.10f,  0.0f, -1.0f,  0.0f,  0.0f,  1.0f,
+         0.10f, -0.10f, -0.10f,  0.0f, -1.0f,  0.0f,  1.0f,  1.0f,
+         0.10f, -0.10f,  0.10f,  0.0f, -1.0f,  0.0f,  1.0f,  0.0f,
+         0.10f, -0.10f,  0.10f,  0.0f, -1.0f,  0.0f,  1.0f,  0.0f,
+        -0.10f, -0.10f,  0.10f,  0.0f, -1.0f,  0.0f,  0.0f,  0.0f,
+        -0.10f, -0.10f, -0.10f,  0.0f, -1.0f,  0.0f,  0.0f,  1.0f,
+
+        -0.10f,  0.10f, -0.10f,  0.0f,  1.0f,  0.0f,  0.0f,  1.0f,
+         0.10f,  0.10f, -0.10f,  0.0f,  1.0f,  0.0f,  1.0f,  1.0f,
+         0.10f,  0.10f,  0.10f,  0.0f,  1.0f,  0.0f,  1.0f,  0.0f,
+         0.10f,  0.10f,  0.10f,  0.0f,  1.0f,  0.0f,  1.0f,  0.0f,
+        -0.10f,  0.10f,  0.10f,  0.0f,  1.0f,  0.0f,  0.0f,  0.0f,
+        -0.10f,  0.10f, -0.10f,  0.0f,  1.0f,  0.0f,  0.0f,  1.0f
+    };
 
         private readonly Vector3 _lightPos = new Vector3(1.2f, 1.0f, 2.0f);
 
@@ -113,6 +157,8 @@ namespace MiniProyecto2
         private int _vertexBufferObject3;
         private int _vaoModel3;
         private int _vertexBufferObject4;
+        private int _vaoModel4;
+        private int _vertexBufferObject5;
         private int _vaoModel4;
         private Shader _lampShader;
         private Shader _lightingShader;
@@ -127,6 +173,9 @@ namespace MiniProyecto2
         private Shader _lightingShader4;
         private Texture _diffuseMap4;
         private Texture _specularMap4;
+        private Shader _lightingShader5;
+        private Texture _diffuseMap5;
+        private Texture _specularMap5;
 
         private Camera _camera;
         private bool _firstMove = true;
@@ -224,6 +273,31 @@ namespace MiniProyecto2
             GL.EnableVertexAttribArray(texCoordLocation4);
             GL.VertexAttribPointer(texCoordLocation4, 2, VertexAttribPointerType.Float, false, 8 * sizeof(float), 6 * sizeof(float));
 
+            //Pata 1
+            _vertexBufferObject5 = GL.GenBuffer();
+            GL.BindBuffer(BufferTarget.ArrayBuffer, _vertexBufferObject5);
+            GL.BufferData(BufferTarget.ArrayBuffer, verticesPatas.Length * sizeof(float), verticesPatas , BufferUsageHint.StaticDraw);
+            _lightingShader5 = new Shader("C:\\Users\\maqui\\Documents\\MiniProyecto2\\Shaders\\vert.glsl","C:\\Users\\maqui\\Documents\\MiniProyecto2\\Shaders\\lightFrag.glsl");
+            _diffuseMap5 = new Texture("C:\\Users\\maqui\\Documents\\MiniProyecto2\\Textures\\CuerpoCreeper.png");
+            _specularMap5 = new Texture("C:\\Users\\maqui\\Documents\\MiniProyecto2\\Textures\\CuerpoCreeper.png");
+            _vaoModel5 = GL.GenVertexArray();
+            GL.BindVertexArray(_vaoModel5);
+            GL.BindBuffer(BufferTarget.ArrayBuffer, _vertexBufferObject5);
+            var positionLocation5 = _lightingShader5.GetAttribLocation("aPos");
+            GL.EnableVertexAttribArray(positionLocation5);
+            GL.VertexAttribPointer(positionLocation5, 3, VertexAttribPointerType.Float, false, 8 * sizeof(float), 0);
+            var normalLocation5 = _lightingShader5.GetAttribLocation("aNormal");
+            GL.EnableVertexAttribArray(normalLocation5);
+            GL.VertexAttribPointer(normalLocation5, 3, VertexAttribPointerType.Float, false, 8 * sizeof(float), 3 * sizeof(float));
+            var texCoordLocation5 = _lightingShader5.GetAttribLocation("aTexCoords");
+            GL.EnableVertexAttribArray(texCoordLocation5);
+            GL.VertexAttribPointer(texCoordLocation5, 2, VertexAttribPointerType.Float, false, 8 * sizeof(float), 6 * sizeof(float));
+            //Pata 2
+
+            //Pata 3
+
+            //Pata 4
+
             //Lighting Cube
             _lampShader = new Shader("C:\\Users\\maqui\\Documents\\CreeperModelaje\\Shaders\\vert.glsl","C:\\Users\\maqui\\Documents\\CreeperModelaje\\Shaders\\frag.glsl");
             _vaoLamp = GL.GenVertexArray();
@@ -248,11 +322,13 @@ namespace MiniProyecto2
             Matrix4 creeperBody1 = Matrix4.Identity;
             Matrix4 creeperBody2 = Matrix4.Identity;
             Matrix4 creeperBody3 = Matrix4.Identity;
+            Matrix4 creeperPata1 = Matrix4.Identity;
             if(!flag) {
                 creeperHead *= Matrix4.CreateTranslation(0.0f,-10.0f,0.0f);
                 creeperBody1 *= Matrix4.CreateTranslation(0.0f,-10.0f,0.0f);
                 creeperBody2 *= Matrix4.CreateTranslation(0.0f,-10.7f,0.0f);
                 creeperBody3 *= Matrix4.CreateTranslation(0.0f,-11.4f,0.0f);
+                creeperPata1 *= Matrix4.CreateTranslation(-7.65f,-2.075f, 0.35f);
                 flag = true;
             }
             else {
@@ -261,21 +337,25 @@ namespace MiniProyecto2
                     creeperBody1 *= Matrix4.CreateTranslation(0.0f,-10.0f,0.0f);
                     creeperBody2 *= Matrix4.CreateTranslation(0.0f,-10.7f,0.0f);
                     creeperBody3 *= Matrix4.CreateTranslation(0.0f,-11.4f,0.0f);
+                    creeperPata1 *= Matrix4.CreateTranslation(-7.65f,-2.075f, 0.35f);
                 }
                 else if(GLFW.GetTime()<18.0) {
                     creeperBody1 *= Matrix4.CreateTranslation(0.0f,(float)GLFW.GetTime()-18.675f,0.0f);
                     creeperBody2 *= Matrix4.CreateTranslation(0.0f,-10.7f,0.0f);
                     creeperBody3 *= Matrix4.CreateTranslation(0.0f,-11.4f,0.0f);
+                    creeperPata1 *= Matrix4.CreateTranslation((float)GLFW.GetTime()-17.65f,-2.075f, 0.35f);
                 }
                 else if(GLFW.GetTime()<23){
                     creeperBody1 *= Matrix4.CreateTranslation(0.0f,-0.675f,0.0f);
                     creeperBody2 *= Matrix4.CreateTranslation(0.0f,(float)GLFW.GetTime()-24.375f,0.0f);
                     creeperBody3 *= Matrix4.CreateTranslation(0.0f,-11.4f,0.0f);
+                    creeperPata1 *= Matrix4.CreateTranslation(0.35f,-2.075f, 0.35f);
                 }
                 else {
                     creeperBody1 *= Matrix4.CreateTranslation(0.0f,-0.675f,0.0f);
                     creeperBody2 *= Matrix4.CreateTranslation(0.0f,-1.375f,0.0f);
-                    creeperBody3 *= Matrix4.CreateTranslation(0.0f,-11.4f,0.0f);
+                    creeperBody3 *= Matrix4.CreateTranslation(0.0f,-2.075f,0.0f);
+                    creeperPata1 *= Matrix4.CreateTranslation(0.35f,-2.075f, 0.35f);
                 }
             }
             //Creeper Face
@@ -350,6 +430,25 @@ namespace MiniProyecto2
             _lightingShader4.SetFloat("material.shininess", 32.0f);
             _lightingShader4.SetVector3("light.position", _lightPos);
             _lightingShader4.SetVector3("light.ambient", new Vector3(0.2f));
+            _lightingShader4.SetVector3("light.diffuse", new Vector3(0.2f));
+            _lightingShader4.SetVector3("light.specular", new Vector3(1.0f));
+            GL.DrawArrays(PrimitiveType.Triangles, 0, 36);
+
+            //Creeper pata1
+            GL.BindVertexArray(_vaoModel5);
+            _diffuseMap4.Use();
+            _specularMap4.Use(TextureUnit.Texture1);
+            _lightingShader4.Use();
+            _lightingShader4.SetMatrix4("model", creeperPata1);
+            _lightingShader4.SetMatrix4("view", _camera.GetViewMatrix());
+            _lightingShader4.SetMatrix4("projection", _camera.GetProjectionMatrix());
+            _lightingShader4.SetVector3("viewPos", _camera.Position);
+            _lightingShader4.SetInt("material.diffuse", 0);
+            _lightingShader4.SetInt("material.specular", 1);
+            _lightingShader4.SetVector3("material.specular", new Vector3(0.8f, 0.8f, 0.8f));
+            _lightingShader4.SetFloat("material.shininess", 32.0f);
+            _lightingShader4.SetVector3("light.position", _lightPos);
+            _lightingShader4.SetVector3("light.ambient", new Vector3(0.7f));
             _lightingShader4.SetVector3("light.diffuse", new Vector3(0.2f));
             _lightingShader4.SetVector3("light.specular", new Vector3(1.0f));
             GL.DrawArrays(PrimitiveType.Triangles, 0, 36);
