@@ -203,9 +203,9 @@ namespace MiniProyecto2
             _vertexBufferObject = GL.GenBuffer();
             GL.BindBuffer(BufferTarget.ArrayBuffer, _vertexBufferObject);
             GL.BufferData(BufferTarget.ArrayBuffer, _vertices.Length * sizeof(float), _vertices, BufferUsageHint.StaticDraw);
-            _lightingShader = new Shader("C:\\Users\\maqui\\Documents\\CreeperModelaje\\Shaders\\vert.glsl","C:\\Users\\maqui\\Documents\\CreeperModelaje\\Shaders\\lightFrag.glsl");
-            _diffuseMap = new Texture("C:\\Users\\maqui\\Documents\\CreeperModelaje\\Textures\\CreeperFace.png");
-            _specularMap = new Texture("C:\\Users\\maqui\\Documents\\CreeperModelaje\\Textures\\CreeperFace.png");
+            _lightingShader = new Shader(".\\Shaders\\vert.glsl",".\\Shaders\\lightFrag.glsl");
+            _diffuseMap = new Texture(".\\Textures\\CreeperFace.png");
+            _specularMap = new Texture(".\\Textures\\CreeperFace.png");
             _vaoModel = GL.GenVertexArray();
             GL.BindVertexArray(_vaoModel);
             GL.BindBuffer(BufferTarget.ArrayBuffer, _vertexBufferObject);
@@ -223,9 +223,9 @@ namespace MiniProyecto2
             _vertexBufferObject2 = GL.GenBuffer();
             GL.BindBuffer(BufferTarget.ArrayBuffer, _vertexBufferObject2);
             GL.BufferData(BufferTarget.ArrayBuffer, verticesBody.Length * sizeof(float), verticesBody, BufferUsageHint.StaticDraw);
-            _lightingShader2 = new Shader("C:\\Users\\maqui\\Documents\\MiniProyecto2\\Shaders\\vert.glsl","C:\\Users\\maqui\\Documents\\MiniProyecto2\\Shaders\\lightFrag.glsl");
-            _diffuseMap2 = new Texture("C:\\Users\\maqui\\Documents\\MiniProyecto2\\Textures\\CuerpoCreeper.png");
-            _specularMap2 = new Texture("C:\\Users\\maqui\\Documents\\MiniProyecto2\\Textures\\CuerpoCreeper.png");
+            _lightingShader2 = new Shader(".\\Shaders\\vert.glsl",".\\Shaders\\lightFrag.glsl");
+            _diffuseMap2 = new Texture(".\\Textures\\CuerpoCreeper.png");
+            _specularMap2 = new Texture(".\\Textures\\CuerpoCreeper.png");
             _vaoModel2 = GL.GenVertexArray();
             GL.BindVertexArray(_vaoModel2);
             GL.BindBuffer(BufferTarget.ArrayBuffer, _vertexBufferObject2);
@@ -243,9 +243,9 @@ namespace MiniProyecto2
             _vertexBufferObject3 = GL.GenBuffer();
             GL.BindBuffer(BufferTarget.ArrayBuffer, _vertexBufferObject3);
             GL.BufferData(BufferTarget.ArrayBuffer, verticesBody.Length * sizeof(float), verticesBody , BufferUsageHint.StaticDraw);
-            _lightingShader3 = new Shader("C:\\Users\\maqui\\Documents\\MiniProyecto2\\Shaders\\vert.glsl","C:\\Users\\maqui\\Documents\\MiniProyecto2\\Shaders\\lightFrag.glsl");
-            _diffuseMap3 = new Texture("C:\\Users\\maqui\\Documents\\MiniProyecto2\\Textures\\CuerpoCreeper.png");
-            _specularMap3 = new Texture("C:\\Users\\maqui\\Documents\\MiniProyecto2\\Textures\\CuerpoCreeper.png");
+            _lightingShader3 = new Shader(".\\Shaders\\vert.glsl",".\\Shaders\\lightFrag.glsl");
+            _diffuseMap3 = new Texture(".\\Textures\\CuerpoCreeper.png");
+            _specularMap3 = new Texture(".\\Textures\\CuerpoCreeper.png");
             _vaoModel3 = GL.GenVertexArray();
             GL.BindVertexArray(_vaoModel3);
             GL.BindBuffer(BufferTarget.ArrayBuffer, _vertexBufferObject3);
@@ -263,9 +263,9 @@ namespace MiniProyecto2
             _vertexBufferObject4 = GL.GenBuffer();
             GL.BindBuffer(BufferTarget.ArrayBuffer, _vertexBufferObject4);
             GL.BufferData(BufferTarget.ArrayBuffer, verticesBody.Length * sizeof(float), verticesBody , BufferUsageHint.StaticDraw);
-            _lightingShader4 = new Shader("C:\\Users\\maqui\\Documents\\MiniProyecto2\\Shaders\\vert.glsl","C:\\Users\\maqui\\Documents\\MiniProyecto2\\Shaders\\lightFrag.glsl");
-            _diffuseMap4 = new Texture("C:\\Users\\maqui\\Documents\\MiniProyecto2\\Textures\\CuerpoCreeper.png");
-            _specularMap4 = new Texture("C:\\Users\\maqui\\Documents\\MiniProyecto2\\Textures\\CuerpoCreeper.png");
+            _lightingShader4 = new Shader(".\\Shaders\\vert.glsl",".\\Shaders\\lightFrag.glsl");
+            _diffuseMap4 = new Texture(".\\Textures\\CuerpoCreeper.png");
+            _specularMap4 = new Texture(".\\Textures\\CuerpoCreeper.png");
             _vaoModel4 = GL.GenVertexArray();
             GL.BindVertexArray(_vaoModel4);
             GL.BindBuffer(BufferTarget.ArrayBuffer, _vertexBufferObject4);
@@ -283,9 +283,9 @@ namespace MiniProyecto2
             _vertexBufferObject5 = GL.GenBuffer();
             GL.BindBuffer(BufferTarget.ArrayBuffer, _vertexBufferObject5);
             GL.BufferData(BufferTarget.ArrayBuffer, verticesPatas.Length * sizeof(float), verticesPatas , BufferUsageHint.StaticDraw);
-            _lightingShader5 = new Shader("C:\\Users\\maqui\\Documents\\MiniProyecto2\\Shaders\\vert.glsl","C:\\Users\\maqui\\Documents\\MiniProyecto2\\Shaders\\lightFrag.glsl");
-            _diffuseMap5 = new Texture("C:\\Users\\maqui\\Documents\\MiniProyecto2\\Textures\\CuerpoCreeper.png");
-            _specularMap5 = new Texture("C:\\Users\\maqui\\Documents\\MiniProyecto2\\Textures\\CuerpoCreeper.png");
+            _lightingShader5 = new Shader(".\\Shaders\\vert.glsl",".\\Shaders\\lightFrag.glsl");
+            _diffuseMap5 = new Texture(".\\Textures\\CuerpoCreeper.png");
+            _specularMap5 = new Texture(".\\Textures\\CuerpoCreeper.png");
             _vaoModel5 = GL.GenVertexArray();
             GL.BindVertexArray(_vaoModel5);
             GL.BindBuffer(BufferTarget.ArrayBuffer, _vertexBufferObject5);
@@ -304,7 +304,7 @@ namespace MiniProyecto2
             GL.BindBuffer(BufferTarget.ArrayBuffer, _vertexBufferObject6);
             GL.BufferData(BufferTarget.ArrayBuffer, verticesPatas.Length * sizeof(float), verticesPatas , BufferUsageHint.StaticDraw);
             _vaoModel6 = GL.GenVertexArray();
-            GL.BindVertexArray(_vaoModel5);
+            GL.BindVertexArray(_vaoModel6);
             GL.BindBuffer(BufferTarget.ArrayBuffer, _vertexBufferObject6);
             var positionLocation6 = _lightingShader5.GetAttribLocation("aPos");
             GL.EnableVertexAttribArray(positionLocation6);
@@ -315,23 +315,6 @@ namespace MiniProyecto2
             var texCoordLocation6 = _lightingShader5.GetAttribLocation("aTexCoords");
             GL.EnableVertexAttribArray(texCoordLocation6);
             GL.VertexAttribPointer(texCoordLocation6, 2, VertexAttribPointerType.Float, false, 8 * sizeof(float), 6 * sizeof(float));
-
-            //Pata 4
-            _vertexBufferObject8 = GL.GenBuffer();
-            GL.BindBuffer(BufferTarget.ArrayBuffer, _vertexBufferObject8);
-            GL.BufferData(BufferTarget.ArrayBuffer, verticesPatas.Length * sizeof(float), verticesPatas , BufferUsageHint.StaticDraw);
-            _vaoModel8 = GL.GenVertexArray();
-            GL.BindVertexArray(_vaoModel8);
-            GL.BindBuffer(BufferTarget.ArrayBuffer, _vertexBufferObject8);
-            var positionLocation8 = _lightingShader5.GetAttribLocation("aPos");
-            GL.EnableVertexAttribArray(positionLocation8);
-            GL.VertexAttribPointer(positionLocation8, 3, VertexAttribPointerType.Float, false, 8 * sizeof(float), 0);
-            var normalLocation8 = _lightingShader5.GetAttribLocation("aNormal");
-            GL.EnableVertexAttribArray(normalLocation8);
-            GL.VertexAttribPointer(normalLocation8, 3, VertexAttribPointerType.Float, false, 8 * sizeof(float), 3 * sizeof(float));
-            var texCoordLocation8 = _lightingShader5.GetAttribLocation("aTexCoords");
-            GL.EnableVertexAttribArray(texCoordLocation8);
-            GL.VertexAttribPointer(texCoordLocation8, 2, VertexAttribPointerType.Float, false, 8 * sizeof(float), 6 * sizeof(float));
 
             //Pata 3
             _vertexBufferObject7 = GL.GenBuffer();
@@ -350,8 +333,25 @@ namespace MiniProyecto2
             GL.EnableVertexAttribArray(texCoordLocation7);
             GL.VertexAttribPointer(texCoordLocation7, 2, VertexAttribPointerType.Float, false, 8 * sizeof(float), 6 * sizeof(float));
 
+            //Pata 4
+            _vertexBufferObject8 = GL.GenBuffer();
+            GL.BindBuffer(BufferTarget.ArrayBuffer, _vertexBufferObject8);
+            GL.BufferData(BufferTarget.ArrayBuffer, verticesPatas.Length * sizeof(float), verticesPatas , BufferUsageHint.StaticDraw);
+            _vaoModel8 = GL.GenVertexArray();
+            GL.BindVertexArray(_vaoModel8);
+            GL.BindBuffer(BufferTarget.ArrayBuffer, _vertexBufferObject8);
+            var positionLocation8 = _lightingShader5.GetAttribLocation("aPos");
+            GL.EnableVertexAttribArray(positionLocation8);
+            GL.VertexAttribPointer(positionLocation8, 3, VertexAttribPointerType.Float, false, 8 * sizeof(float), 0);
+            var normalLocation8 = _lightingShader5.GetAttribLocation("aNormal");
+            GL.EnableVertexAttribArray(normalLocation8);
+            GL.VertexAttribPointer(normalLocation8, 3, VertexAttribPointerType.Float, false, 8 * sizeof(float), 3 * sizeof(float));
+            var texCoordLocation8 = _lightingShader5.GetAttribLocation("aTexCoords");
+            GL.EnableVertexAttribArray(texCoordLocation8);
+            GL.VertexAttribPointer(texCoordLocation8, 2, VertexAttribPointerType.Float, false, 8 * sizeof(float), 6 * sizeof(float));
+
             //Lighting Cube
-            _lampShader = new Shader("C:\\Users\\maqui\\Documents\\CreeperModelaje\\Shaders\\vert.glsl","C:\\Users\\maqui\\Documents\\CreeperModelaje\\Shaders\\frag.glsl");
+            _lampShader = new Shader(".\\Shaders\\vert.glsl",".\\Shaders\\frag.glsl");
             _vaoLamp = GL.GenVertexArray();
             GL.BindVertexArray(_vaoLamp);
             GL.BindBuffer(BufferTarget.ArrayBuffer, _vertexBufferObject);
@@ -419,23 +419,23 @@ namespace MiniProyecto2
                     creeperPata3 *= Matrix4.CreateTranslation(-0.35f,-2.375f, 0.35f);
                     creeperPata4 *= Matrix4.CreateTranslation(7.65f,-2.375f, -0.35f);
                 }
-                else if(GLFW.GetTime()<30){ 
+                else if(GLFW.GetTime()<31){ 
                     creeperBody1 *= Matrix4.CreateTranslation(0.0f,-0.675f,0.0f);
                     creeperBody2 *= Matrix4.CreateTranslation(0.0f,-1.375f,0.0f);
-                    creeperBody3 *= Matrix4.CreateTranslation(0.0f,(float)GLFW.GetTime()-32.075f,0.0f);
+                    creeperBody3 *= Matrix4.CreateTranslation(0.0f,(float)GLFW.GetTime()-33.075f,0.0f);
                     creeperPata1 *= Matrix4.CreateTranslation(0.35f,-2.375f, 0.35f);
-                    creeperPata2 *= Matrix4.CreateTranslation(-7.65f,-2.375f, -0.35f);
+                    creeperPata2 *= Matrix4.CreateTranslation((float)GLFW.GetTime()-30.65f,-2.375f, -0.35f);
                     creeperPata3 *= Matrix4.CreateTranslation(-0.35f,-2.375f, 0.35f);
-                    creeperPata4 *= Matrix4.CreateTranslation(7.65f,-2.375f, -0.35f);
+                    creeperPata4 *= Matrix4.CreateTranslation(30.65f-(float)GLFW.GetTime(),-2.375f, -0.35f);
                 }
                 else {
                     creeperBody1 *= Matrix4.CreateTranslation(0.0f,-0.675f,0.0f);
                     creeperBody2 *= Matrix4.CreateTranslation(0.0f,-1.375f,0.0f);
                     creeperBody3 *= Matrix4.CreateTranslation(0.0f,-2.075f,0.0f);
                     creeperPata1 *= Matrix4.CreateTranslation(0.35f,-2.375f, 0.35f);
-                    creeperPata2 *= Matrix4.CreateTranslation(-7.65f,-2.375f, -0.35f);
+                    creeperPata2 *= Matrix4.CreateTranslation(-0.35f,-2.375f, -0.35f);
                     creeperPata3 *= Matrix4.CreateTranslation(-0.35f,-2.375f, 0.35f);
-                    creeperPata4 *= Matrix4.CreateTranslation(7.65f,-2.375f, -0.35f);
+                    creeperPata4 *= Matrix4.CreateTranslation(0.35f,-2.375f, -0.35f);
                 }
             }
             //Creeper Face
