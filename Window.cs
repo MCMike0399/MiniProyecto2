@@ -148,7 +148,7 @@ namespace MiniProyecto2
     };
 
         private readonly Vector3 _lightPos = new Vector3(1.2f, 1.0f, 2.0f);
-
+        private Vector3 _lightPos2 = new Vector3(-1.2f,1.0f,-2.0f);
         private int _vertexBufferObject;
         private int _vaoModel;
         private int _vaoLamp;
@@ -438,6 +438,7 @@ namespace MiniProyecto2
                     creeperPata4 *= Matrix4.CreateTranslation(0.35f,-2.375f, -0.35f);
                 }
             }
+            int i=0;
             //Creeper Face
             GL.BindVertexArray(_vaoModel);
             _diffuseMap.Use();
@@ -451,29 +452,55 @@ namespace MiniProyecto2
             _lightingShader.SetInt("material.specular", 1);
             _lightingShader.SetVector3("material.specular", new Vector3(0.5f, 0.5f, 0.5f));
             _lightingShader.SetFloat("material.shininess", 32.0f);
-            _lightingShader.SetVector3("light.position", _lightPos);
-            _lightingShader.SetVector3("light.ambient", new Vector3(0.2f));
-            _lightingShader.SetVector3("light.diffuse", new Vector3(0.5f));
-            _lightingShader.SetVector3("light.specular", new Vector3(1.0f));
+            _lightingShader.SetVector3($"pointLights[{i}].position", _lightPos);
+            _lightingShader.SetVector3($"pointLights[{i}].ambient", new Vector3(0.05f, 0.05f, 0.05f));
+            _lightingShader.SetVector3($"pointLights[{i}].diffuse", new Vector3(0.8f, 0.8f, 0.8f));
+            _lightingShader.SetVector3($"pointLights[{i}].specular", new Vector3(1.0f, 1.0f, 1.0f));
+            _lightingShader.SetFloat($"pointLights[{i}].constant", 1.0f);
+            _lightingShader.SetFloat($"pointLights[{i}].linear", 0.09f);
+            _lightingShader.SetFloat($"pointLights[{i}].quadratic", 0.032f);
+            _lightingShader.SetVector3("spotLight.position", _camera.Position);
+            _lightingShader.SetVector3("spotLight.direction", _camera.Front);
+            _lightingShader.SetVector3("spotLight.ambient", new Vector3(0.0f, 0.0f, 0.0f));
+            _lightingShader.SetVector3("spotLight.diffuse", new Vector3(1.0f, 1.0f, 1.0f));
+            _lightingShader.SetVector3("spotLight.specular", new Vector3(1.0f, 1.0f, 1.0f));
+            _lightingShader.SetFloat("spotLight.constant", 1.0f);
+            _lightingShader.SetFloat("spotLight.linear", 0.09f);
+            _lightingShader.SetFloat("spotLight.quadratic", 0.032f);
+            _lightingShader.SetFloat("spotLight.cutOff", (float)Math.Cos(MathHelper.DegreesToRadians(12.5f)));
+            _lightingShader.SetFloat("spotLight.outerCutOff", (float)Math.Cos(MathHelper.DegreesToRadians(12.5f)));
             GL.DrawArrays(PrimitiveType.Triangles, 0, 36);
             
             //Creeper body1
             GL.BindVertexArray(_vaoModel2);
             _diffuseMap2.Use();
             _specularMap2.Use(TextureUnit.Texture1);
-            _lightingShader.Use();
-            _lightingShader.SetMatrix4("model", creeperBody1);
-            _lightingShader.SetMatrix4("view", _camera.GetViewMatrix());
-            _lightingShader.SetMatrix4("projection", _camera.GetProjectionMatrix());
-            _lightingShader.SetVector3("viewPos", _camera.Position);
-            _lightingShader.SetInt("material.diffuse", 0);
-            _lightingShader.SetInt("material.specular", 1);
-            _lightingShader.SetVector3("material.specular", new Vector3(0.5f, 0.5f, 0.5f));
-            _lightingShader.SetFloat("material.shininess", 32.0f);
-            _lightingShader.SetVector3("light.position", _lightPos);
-            _lightingShader.SetVector3("light.ambient", new Vector3(0.2f));
-            _lightingShader.SetVector3("light.diffuse", new Vector3(0.2f));
-            _lightingShader.SetVector3("light.specular", new Vector3(1.0f));
+            _lightingShader2.Use();
+            _lightingShader2.SetMatrix4("model", creeperBody1);
+            _lightingShader2.SetMatrix4("view", _camera.GetViewMatrix());
+            _lightingShader2.SetMatrix4("projection", _camera.GetProjectionMatrix());
+            _lightingShader2.SetVector3("viewPos", _camera.Position);
+            _lightingShader2.SetInt("material.diffuse", 0);
+            _lightingShader2.SetInt("material.specular", 1);
+            _lightingShader2.SetVector3("material.specular", new Vector3(0.5f, 0.5f, 0.5f));
+            _lightingShader2.SetFloat("material.shininess", 32.0f);
+            _lightingShader2.SetVector3($"pointLights[{i}].position", _lightPos);
+            _lightingShader2.SetVector3($"pointLights[{i}].ambient", new Vector3(0.05f, 0.05f, 0.05f));
+            _lightingShader2.SetVector3($"pointLights[{i}].diffuse", new Vector3(0.8f, 0.8f, 0.8f));
+            _lightingShader2.SetVector3($"pointLights[{i}].specular", new Vector3(1.0f, 1.0f, 1.0f));
+            _lightingShader2.SetFloat($"pointLights[{i}].constant", 1.0f);
+            _lightingShader2.SetFloat($"pointLights[{i}].linear", 0.09f);
+            _lightingShader2.SetFloat($"pointLights[{i}].quadratic", 0.032f);
+            _lightingShader2.SetVector3("spotLight.position", _camera.Position);
+            _lightingShader2.SetVector3("spotLight.direction", _camera.Front);
+            _lightingShader2.SetVector3("spotLight.ambient", new Vector3(0.2f, 0.2f, 0.2f));
+            _lightingShader2.SetVector3("spotLight.diffuse", new Vector3(0.2f, 0.2f, 0.2f));
+            _lightingShader2.SetVector3("spotLight.specular", new Vector3(1.0f, 1.0f, 1.0f));
+            _lightingShader2.SetFloat("spotLight.constant", 1.0f);
+            _lightingShader2.SetFloat("spotLight.linear", 0.09f);
+            _lightingShader2.SetFloat("spotLight.quadratic", 0.032f);
+            _lightingShader2.SetFloat("spotLight.cutOff", (float)Math.Cos(MathHelper.DegreesToRadians(12.5f)));
+            _lightingShader2.SetFloat("spotLight.outerCutOff", (float)Math.Cos(MathHelper.DegreesToRadians(12.5f)));
             GL.DrawArrays(PrimitiveType.Triangles, 0, 36);
 
              //Creeper body2
@@ -489,10 +516,23 @@ namespace MiniProyecto2
             _lightingShader3.SetInt("material.specular", 1);
             _lightingShader3.SetVector3("material.specular", new Vector3(0.5f, 0.5f, 0.5f));
             _lightingShader3.SetFloat("material.shininess", 32.0f);
-            _lightingShader3.SetVector3("light.position", _lightPos);
-            _lightingShader3.SetVector3("light.ambient", new Vector3(0.2f));
-            _lightingShader3.SetVector3("light.diffuse", new Vector3(0.2f));
-            _lightingShader3.SetVector3("light.specular", new Vector3(1.0f));
+            _lightingShader3.SetVector3($"pointLights[{i}].position", _lightPos);
+            _lightingShader3.SetVector3($"pointLights[{i}].ambient", new Vector3(0.05f, 0.05f, 0.05f));
+            _lightingShader3.SetVector3($"pointLights[{i}].diffuse", new Vector3(0.8f, 0.8f, 0.8f));
+            _lightingShader3.SetVector3($"pointLights[{i}].specular", new Vector3(1.0f, 1.0f, 1.0f));
+            _lightingShader3.SetFloat($"pointLights[{i}].constant", 1.0f);
+            _lightingShader3.SetFloat($"pointLights[{i}].linear", 0.09f);
+            _lightingShader3.SetFloat($"pointLights[{i}].quadratic", 0.032f);
+            _lightingShader3.SetVector3("spotLight.position", _camera.Position);
+            _lightingShader3.SetVector3("spotLight.direction", _camera.Front);
+            _lightingShader3.SetVector3("spotLight.ambient", new Vector3(0.2f, 0.2f, 0.2f));
+            _lightingShader3.SetVector3("spotLight.diffuse", new Vector3(0.2f, 0.2f, 0.2f));
+            _lightingShader3.SetVector3("spotLight.specular", new Vector3(1.0f, 1.0f, 1.0f));
+            _lightingShader3.SetFloat("spotLight.constant", 1.0f);
+            _lightingShader3.SetFloat("spotLight.linear", 0.09f);
+            _lightingShader3.SetFloat("spotLight.quadratic", 0.032f);
+            _lightingShader3.SetFloat("spotLight.cutOff", (float)Math.Cos(MathHelper.DegreesToRadians(12.5f)));
+            _lightingShader3.SetFloat("spotLight.outerCutOff", (float)Math.Cos(MathHelper.DegreesToRadians(12.5f)));
             GL.DrawArrays(PrimitiveType.Triangles, 0, 36);
 
             //Creeper body3
@@ -508,10 +548,23 @@ namespace MiniProyecto2
             _lightingShader4.SetInt("material.specular", 1);
             _lightingShader4.SetVector3("material.specular", new Vector3(0.5f, 0.5f, 0.5f));
             _lightingShader4.SetFloat("material.shininess", 32.0f);
-            _lightingShader4.SetVector3("light.position", _lightPos);
-            _lightingShader4.SetVector3("light.ambient", new Vector3(0.2f));
-            _lightingShader4.SetVector3("light.diffuse", new Vector3(0.2f));
-            _lightingShader4.SetVector3("light.specular", new Vector3(1.0f));
+            _lightingShader4.SetVector3($"pointLights[{i}].position", _lightPos);
+            _lightingShader4.SetVector3($"pointLights[{i}].ambient", new Vector3(0.05f, 0.05f, 0.05f));
+            _lightingShader4.SetVector3($"pointLights[{i}].diffuse", new Vector3(0.8f, 0.8f, 0.8f));
+            _lightingShader4.SetVector3($"pointLights[{i}].specular", new Vector3(1.0f, 1.0f, 1.0f));
+            _lightingShader4.SetFloat($"pointLights[{i}].constant", 1.0f);
+            _lightingShader4.SetFloat($"pointLights[{i}].linear", 0.09f);
+            _lightingShader4.SetFloat($"pointLights[{i}].quadratic", 0.032f);
+            _lightingShader4.SetVector3("spotLight.position", _camera.Position);
+            _lightingShader4.SetVector3("spotLight.direction", _camera.Front);
+            _lightingShader4.SetVector3("spotLight.ambient", new Vector3(0.2f, 0.2f, 0.2f));
+            _lightingShader4.SetVector3("spotLight.diffuse", new Vector3(0.2f, 0.2f, 0.2f));
+            _lightingShader4.SetVector3("spotLight.specular", new Vector3(1.0f, 1.0f, 1.0f));
+            _lightingShader4.SetFloat("spotLight.constant", 1.0f);
+            _lightingShader4.SetFloat("spotLight.linear", 0.09f);
+            _lightingShader4.SetFloat("spotLight.quadratic", 0.032f);
+            _lightingShader4.SetFloat("spotLight.cutOff", (float)Math.Cos(MathHelper.DegreesToRadians(12.5f)));
+            _lightingShader4.SetFloat("spotLight.outerCutOff", (float)Math.Cos(MathHelper.DegreesToRadians(12.5f)));
             GL.DrawArrays(PrimitiveType.Triangles, 0, 36);
 
             //Creeper pata1
@@ -525,12 +578,25 @@ namespace MiniProyecto2
             _lightingShader5.SetVector3("viewPos", _camera.Position);
             _lightingShader5.SetInt("material.diffuse", 0);
             _lightingShader5.SetInt("material.specular", 1);
-            _lightingShader5.SetVector3("material.specular", new Vector3(0.8f, 0.8f, 0.8f));
+            _lightingShader5.SetVector3("material.specular", new Vector3(0.5f, 0.5f, 0.5f));
             _lightingShader5.SetFloat("material.shininess", 32.0f);
-            _lightingShader5.SetVector3("light.position", _lightPos);
-            _lightingShader5.SetVector3("light.ambient", new Vector3(0.7f));
-            _lightingShader5.SetVector3("light.diffuse", new Vector3(0.2f));
-            _lightingShader5.SetVector3("light.specular", new Vector3(1.0f));
+            _lightingShader5.SetVector3($"pointLights[{i}].position", _lightPos);
+            _lightingShader5.SetVector3($"pointLights[{i}].ambient", new Vector3(0.05f, 0.05f, 0.05f));
+            _lightingShader5.SetVector3($"pointLights[{i}].diffuse", new Vector3(0.8f, 0.8f, 0.8f));
+            _lightingShader5.SetVector3($"pointLights[{i}].specular", new Vector3(1.0f, 1.0f, 1.0f));
+            _lightingShader5.SetFloat($"pointLights[{i}].constant", 1.0f);
+            _lightingShader5.SetFloat($"pointLights[{i}].linear", 0.09f);
+            _lightingShader5.SetFloat($"pointLights[{i}].quadratic", 0.032f);
+            _lightingShader5.SetVector3("spotLight.position", _camera.Position);
+            _lightingShader5.SetVector3("spotLight.direction", _camera.Front);
+            _lightingShader5.SetVector3("spotLight.ambient", new Vector3(0.7f, 0.7f, 0.7f));
+            _lightingShader5.SetVector3("spotLight.diffuse", new Vector3(0.2f, 0.2f, 0.2f));
+            _lightingShader5.SetVector3("spotLight.specular", new Vector3(1.0f, 1.0f, 1.0f));
+            _lightingShader5.SetFloat("spotLight.constant", 1.0f);
+            _lightingShader5.SetFloat("spotLight.linear", 0.09f);
+            _lightingShader5.SetFloat("spotLight.quadratic", 0.032f);
+            _lightingShader5.SetFloat("spotLight.cutOff", (float)Math.Cos(MathHelper.DegreesToRadians(12.5f)));
+            _lightingShader5.SetFloat("spotLight.outerCutOff", (float)Math.Cos(MathHelper.DegreesToRadians(12.5f)));
             GL.DrawArrays(PrimitiveType.Triangles, 0, 36);
 
             //Creeper pata2
@@ -544,12 +610,25 @@ namespace MiniProyecto2
             _lightingShader5.SetVector3("viewPos", _camera.Position);
             _lightingShader5.SetInt("material.diffuse", 0);
             _lightingShader5.SetInt("material.specular", 1);
-            _lightingShader5.SetVector3("material.specular", new Vector3(0.8f, 0.8f, 0.8f));
+            _lightingShader5.SetVector3("material.specular", new Vector3(0.5f, 0.5f, 0.5f));
             _lightingShader5.SetFloat("material.shininess", 32.0f);
-            _lightingShader5.SetVector3("light.position", _lightPos);
-            _lightingShader5.SetVector3("light.ambient", new Vector3(0.7f));
-            _lightingShader5.SetVector3("light.diffuse", new Vector3(0.2f));
-            _lightingShader5.SetVector3("light.specular", new Vector3(1.0f));
+            _lightingShader5.SetVector3($"pointLights[{i}].position", _lightPos);
+            _lightingShader5.SetVector3($"pointLights[{i}].ambient", new Vector3(0.05f, 0.05f, 0.05f));
+            _lightingShader5.SetVector3($"pointLights[{i}].diffuse", new Vector3(0.8f, 0.8f, 0.8f));
+            _lightingShader5.SetVector3($"pointLights[{i}].specular", new Vector3(1.0f, 1.0f, 1.0f));
+            _lightingShader5.SetFloat($"pointLights[{i}].constant", 1.0f);
+            _lightingShader5.SetFloat($"pointLights[{i}].linear", 0.09f);
+            _lightingShader5.SetFloat($"pointLights[{i}].quadratic", 0.032f);
+            _lightingShader5.SetVector3("spotLight.position", _camera.Position);
+            _lightingShader5.SetVector3("spotLight.direction", _camera.Front);
+            _lightingShader5.SetVector3("spotLight.ambient", new Vector3(0.7f, 0.7f, 0.7f));
+            _lightingShader5.SetVector3("spotLight.diffuse", new Vector3(0.2f, 0.2f, 0.2f));
+            _lightingShader5.SetVector3("spotLight.specular", new Vector3(1.0f, 1.0f, 1.0f));
+            _lightingShader5.SetFloat("spotLight.constant", 1.0f);
+            _lightingShader5.SetFloat("spotLight.linear", 0.09f);
+            _lightingShader5.SetFloat("spotLight.quadratic", 0.032f);
+            _lightingShader5.SetFloat("spotLight.cutOff", (float)Math.Cos(MathHelper.DegreesToRadians(12.5f)));
+            _lightingShader5.SetFloat("spotLight.outerCutOff", (float)Math.Cos(MathHelper.DegreesToRadians(12.5f)));
             GL.DrawArrays(PrimitiveType.Triangles, 0, 36);
 
             //Creeper pata3
@@ -563,12 +642,25 @@ namespace MiniProyecto2
             _lightingShader5.SetVector3("viewPos", _camera.Position);
             _lightingShader5.SetInt("material.diffuse", 0);
             _lightingShader5.SetInt("material.specular", 1);
-            _lightingShader5.SetVector3("material.specular", new Vector3(0.8f, 0.8f, 0.8f));
+            _lightingShader5.SetVector3("material.specular", new Vector3(0.5f, 0.5f, 0.5f));
             _lightingShader5.SetFloat("material.shininess", 32.0f);
-            _lightingShader5.SetVector3("light.position", _lightPos);
-            _lightingShader5.SetVector3("light.ambient", new Vector3(0.7f));
-            _lightingShader5.SetVector3("light.diffuse", new Vector3(0.2f));
-            _lightingShader5.SetVector3("light.specular", new Vector3(1.0f));
+            _lightingShader5.SetVector3($"pointLights[{i}].position", _lightPos);
+            _lightingShader5.SetVector3($"pointLights[{i}].ambient", new Vector3(0.05f, 0.05f, 0.05f));
+            _lightingShader5.SetVector3($"pointLights[{i}].diffuse", new Vector3(0.8f, 0.8f, 0.8f));
+            _lightingShader5.SetVector3($"pointLights[{i}].specular", new Vector3(1.0f, 1.0f, 1.0f));
+            _lightingShader5.SetFloat($"pointLights[{i}].constant", 1.0f);
+            _lightingShader5.SetFloat($"pointLights[{i}].linear", 0.09f);
+            _lightingShader5.SetFloat($"pointLights[{i}].quadratic", 0.032f);
+            _lightingShader5.SetVector3("spotLight.position", _camera.Position);
+            _lightingShader5.SetVector3("spotLight.direction", _camera.Front);
+            _lightingShader5.SetVector3("spotLight.ambient", new Vector3(0.7f, 0.7f, 0.7f));
+            _lightingShader5.SetVector3("spotLight.diffuse", new Vector3(0.2f, 0.2f, 0.2f));
+            _lightingShader5.SetVector3("spotLight.specular", new Vector3(1.0f, 1.0f, 1.0f));
+            _lightingShader5.SetFloat("spotLight.constant", 1.0f);
+            _lightingShader5.SetFloat("spotLight.linear", 0.09f);
+            _lightingShader5.SetFloat("spotLight.quadratic", 0.032f);
+            _lightingShader5.SetFloat("spotLight.cutOff", (float)Math.Cos(MathHelper.DegreesToRadians(12.5f)));
+            _lightingShader5.SetFloat("spotLight.outerCutOff", (float)Math.Cos(MathHelper.DegreesToRadians(12.5f)));
             GL.DrawArrays(PrimitiveType.Triangles, 0, 36);
 
             //Creeper pata4
@@ -582,14 +674,27 @@ namespace MiniProyecto2
             _lightingShader5.SetVector3("viewPos", _camera.Position);
             _lightingShader5.SetInt("material.diffuse", 0);
             _lightingShader5.SetInt("material.specular", 1);
-            _lightingShader5.SetVector3("material.specular", new Vector3(0.8f, 0.8f, 0.8f));
+            _lightingShader5.SetVector3("material.specular", new Vector3(0.5f, 0.5f, 0.5f));
             _lightingShader5.SetFloat("material.shininess", 32.0f);
-            _lightingShader5.SetVector3("light.position", _lightPos);
-            _lightingShader5.SetVector3("light.ambient", new Vector3(0.7f));
-            _lightingShader5.SetVector3("light.diffuse", new Vector3(0.2f));
-            _lightingShader5.SetVector3("light.specular", new Vector3(1.0f));
+            _lightingShader5.SetVector3($"pointLights[{i}].position", _lightPos);
+            _lightingShader5.SetVector3($"pointLights[{i}].ambient", new Vector3(0.05f, 0.05f, 0.05f));
+            _lightingShader5.SetVector3($"pointLights[{i}].diffuse", new Vector3(0.8f, 0.8f, 0.8f));
+            _lightingShader5.SetVector3($"pointLights[{i}].specular", new Vector3(1.0f, 1.0f, 1.0f));
+            _lightingShader5.SetFloat($"pointLights[{i}].constant", 1.0f);
+            _lightingShader5.SetFloat($"pointLights[{i}].linear", 0.09f);
+            _lightingShader5.SetFloat($"pointLights[{i}].quadratic", 0.032f);
+            _lightingShader5.SetVector3("spotLight.position", _camera.Position);
+            _lightingShader5.SetVector3("spotLight.direction", _camera.Front);
+            _lightingShader5.SetVector3("spotLight.ambient", new Vector3(0.7f, 0.7f, 0.7f));
+            _lightingShader5.SetVector3("spotLight.diffuse", new Vector3(0.2f, 0.2f, 0.2f));
+            _lightingShader5.SetVector3("spotLight.specular", new Vector3(1.0f, 1.0f, 1.0f));
+            _lightingShader5.SetFloat("spotLight.constant", 1.0f);
+            _lightingShader5.SetFloat("spotLight.linear", 0.09f);
+            _lightingShader5.SetFloat("spotLight.quadratic", 0.032f);
+            _lightingShader5.SetFloat("spotLight.cutOff", (float)Math.Cos(MathHelper.DegreesToRadians(12.5f)));
+            _lightingShader5.SetFloat("spotLight.outerCutOff", (float)Math.Cos(MathHelper.DegreesToRadians(12.5f)));
             GL.DrawArrays(PrimitiveType.Triangles, 0, 36);
-
+            
             //Light Cube
             _lampShader.Use();
             Matrix4 lampMatrix = Matrix4.Identity;
@@ -599,7 +704,7 @@ namespace MiniProyecto2
             _lampShader.SetMatrix4("view", _camera.GetViewMatrix());
             _lampShader.SetMatrix4("projection", _camera.GetProjectionMatrix());
             GL.DrawArrays(PrimitiveType.Triangles, 0, 36);
-
+          
             SwapBuffers();
 
             base.OnRenderFrame(e);
@@ -646,7 +751,9 @@ namespace MiniProyecto2
             {
                 _camera.Position -= _camera.Up * cameraSpeed * (float)e.Time; // Down
             }
-
+            if(input.IsKeyDown(Keys.B)) {
+                _lightPos2 = _camera.Position;
+            }
             var mouse = MouseState;
 
             if (_firstMove)
