@@ -387,6 +387,11 @@ namespace MiniProyecto2
                 creeperPata2 *= Matrix4.CreateTranslation(-7.65f,-2.375f, -0.35f);
                 creeperPata3 *= Matrix4.CreateTranslation(7.65f,-2.375f, 0.35f);
                 creeperPata4 *= Matrix4.CreateTranslation(7.65f,-2.375f, -0.35f);
+
+                Console.WriteLine("Para mover la cámara utilice: WASD");
+                Console.WriteLine("Para mover la luz se utiliza 'I-K' arriba abajo");
+                Console.WriteLine("Para mover la luz se utiliza 'J-L' izquierda derecha");
+                Console.WriteLine("Para mover la luz se utiliza 'U-O' sobre la tercera dimensión");
                 flag = true;
             }
             else {
@@ -831,20 +836,30 @@ namespace MiniProyecto2
             {
                 _camera.Position -= _camera.Up * cameraSpeed * (float)e.Time; // Down
             }
+            if(input.IsKeyDown(Keys.O)) {
+                _lightPos.Z += _lightPos.Z * cameraSpeed * (float)e.Time;
+                _lightPos2.Z += _lightPos2.Z * cameraSpeed * (float)e.Time;
+            }
+            if(input.IsKeyDown(Keys.U)) {
+                _lightPos.Z -= _lightPos.Z * cameraSpeed * (float)e.Time;
+                _lightPos2.Z -= _lightPos2.Z * cameraSpeed * (float)e.Time;
+            }
             if(input.IsKeyDown(Keys.I)) {
-                _lightPos += _lightPos * cameraSpeed * (float)e.Time;
-                _lightPos2 += _lightPos2 * cameraSpeed * (float)e.Time;
+                _lightPos.Y += _lightPos.Y * cameraSpeed * (float)e.Time;
+                _lightPos2.Y += _lightPos2.Y * cameraSpeed * (float)e.Time;
             }
             if(input.IsKeyDown(Keys.K)) {
-                _lightPos -= _lightPos * cameraSpeed * (float)e.Time;
-                _lightPos2 += _lightPos2 * cameraSpeed * (float)e.Time;
+                _lightPos.Y -= _lightPos.Y * cameraSpeed * (float)e.Time;
+                _lightPos2.Y -= _lightPos2.Y * cameraSpeed * (float)e.Time;
             }
-            /*if(input.IsKeyDown(Keys.I)) {
-                _lightPos += _lightPos * cameraSpeed * (float)e.Time;
+            if(input.IsKeyDown(Keys.L)) {
+                _lightPos.X += _lightPos.X * cameraSpeed * (float)e.Time;
+                _lightPos2.X += _lightPos2.X * cameraSpeed * (float)e.Time;
             }
-            if(input.IsKeyDown(Keys.I)) {
-                _lightPos += _lightPos * cameraSpeed * (float)e.Time;
-            }*/
+            if(input.IsKeyDown(Keys.J)) {
+                _lightPos.X -= _lightPos.X * cameraSpeed * (float)e.Time;
+                _lightPos2.X -= _lightPos2.X * cameraSpeed * (float)e.Time;
+            }
             var mouse = MouseState;
 
             if (_firstMove)
