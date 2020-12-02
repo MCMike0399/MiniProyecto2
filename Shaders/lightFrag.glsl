@@ -46,6 +46,7 @@ struct SpotLight{
     float quadratic;
 };
 uniform SpotLight spotLight;
+uniform SpotLight spotLight2;
 
 uniform Material material;
 uniform vec3 viewPos;
@@ -76,7 +77,7 @@ void main()
         result += CalcPointLight(pointLights[i], norm, FragPos, viewDir);
     //phase 3: Spot light
     result += CalcSpotLight(spotLight, norm, FragPos, viewDir);    
-
+    result += CalcSpotLight(spotLight2, norm, FragPos, viewDir); 
     FragColor = vec4(result, 1.0);
 }
 

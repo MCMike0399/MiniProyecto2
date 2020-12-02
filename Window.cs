@@ -148,7 +148,7 @@ namespace MiniProyecto2
     };
 
         private readonly Vector3 _lightPos = new Vector3(1.2f, 1.0f, 2.0f);
-        private Vector3 _lightPos2 = new Vector3(-1.2f,1.0f,-2.0f);
+        private readonly Vector3 _lightPos2 = new Vector3(0.0f,0.0f,0.0f);
         private int _vertexBufferObject;
         private int _vaoModel;
         private int _vaoLamp;
@@ -469,6 +469,17 @@ namespace MiniProyecto2
             _lightingShader.SetFloat("spotLight.quadratic", 0.032f);
             _lightingShader.SetFloat("spotLight.cutOff", (float)Math.Cos(MathHelper.DegreesToRadians(12.5f)));
             _lightingShader.SetFloat("spotLight.outerCutOff", (float)Math.Cos(MathHelper.DegreesToRadians(12.5f)));
+            _lightingShader.SetVector3("spotLight2.position", _lightPos);
+            _lightingShader.SetVector3("spotLight2.direction", _lightPos2);
+            _lightingShader.SetVector3("spotLight2.ambient", new Vector3(0.0f, 0.0f, 0.0f));
+            _lightingShader.SetVector3("spotLight2.diffuse", new Vector3(1.0f, 1.0f, 1.0f));
+            _lightingShader.SetVector3("spotLight2.specular", new Vector3(1.0f, 1.0f, 1.0f));
+            _lightingShader.SetFloat("spotLight2.constant", 1.0f);
+            _lightingShader.SetFloat("spotLight2.linear", 0.09f);
+            _lightingShader.SetFloat("spotLight2.quadratic", 0.032f);
+            _lightingShader.SetFloat("spotLight2.cutOff", (float)Math.Cos(MathHelper.DegreesToRadians(12.5f)));
+            _lightingShader.SetFloat("spotLight2.outerCutOff", (float)Math.Cos(MathHelper.DegreesToRadians(12.5f)));
+            
             GL.DrawArrays(PrimitiveType.Triangles, 0, 36);
             
             //Creeper body1
@@ -501,6 +512,16 @@ namespace MiniProyecto2
             _lightingShader2.SetFloat("spotLight.quadratic", 0.032f);
             _lightingShader2.SetFloat("spotLight.cutOff", (float)Math.Cos(MathHelper.DegreesToRadians(12.5f)));
             _lightingShader2.SetFloat("spotLight.outerCutOff", (float)Math.Cos(MathHelper.DegreesToRadians(12.5f)));
+            _lightingShader2.SetVector3("spotLight2.position", _lightPos);
+            _lightingShader2.SetVector3("spotLight2.direction", _lightPos2);
+            _lightingShader2.SetVector3("spotLight2.ambient", new Vector3(0.2f, 0.2f, 0.2f));
+            _lightingShader2.SetVector3("spotLight2.diffuse", new Vector3(0.2f, 0.2f, 0.2f));
+            _lightingShader2.SetVector3("spotLight2.specular", new Vector3(1.0f, 1.0f, 1.0f));
+            _lightingShader2.SetFloat("spotLight2.constant", 1.0f);
+            _lightingShader2.SetFloat("spotLight2.linear", 0.09f);
+            _lightingShader2.SetFloat("spotLight2.quadratic", 0.032f);
+            _lightingShader2.SetFloat("spotLight2.cutOff", (float)Math.Cos(MathHelper.DegreesToRadians(12.5f)));
+            _lightingShader2.SetFloat("spotLight2.outerCutOff", (float)Math.Cos(MathHelper.DegreesToRadians(12.5f)));
             GL.DrawArrays(PrimitiveType.Triangles, 0, 36);
 
              //Creeper body2
@@ -532,6 +553,16 @@ namespace MiniProyecto2
             _lightingShader3.SetFloat("spotLight.linear", 0.09f);
             _lightingShader3.SetFloat("spotLight.quadratic", 0.032f);
             _lightingShader3.SetFloat("spotLight.cutOff", (float)Math.Cos(MathHelper.DegreesToRadians(12.5f)));
+            _lightingShader3.SetFloat("spotLight.outerCutOff", (float)Math.Cos(MathHelper.DegreesToRadians(12.5f)));
+            _lightingShader3.SetVector3("spotLight2.position", _lightPos);
+            _lightingShader3.SetVector3("spotLight2.direction", _lightPos2);
+            _lightingShader3.SetVector3("spotLight2.ambient", new Vector3(0.2f, 0.2f, 0.2f));
+            _lightingShader3.SetVector3("spotLight2.diffuse", new Vector3(0.2f, 0.2f, 0.2f));
+            _lightingShader3.SetVector3("spotLight2.specular", new Vector3(1.0f, 1.0f, 1.0f));
+            _lightingShader3.SetFloat("spotLight2.constant", 1.0f);
+            _lightingShader3.SetFloat("spotLight2.linear", 0.09f);
+            _lightingShader3.SetFloat("spotLight2.quadratic", 0.032f);
+            _lightingShader3.SetFloat("spotLight2.cutOff", (float)Math.Cos(MathHelper.DegreesToRadians(12.5f)));
             _lightingShader3.SetFloat("spotLight.outerCutOff", (float)Math.Cos(MathHelper.DegreesToRadians(12.5f)));
             GL.DrawArrays(PrimitiveType.Triangles, 0, 36);
 
@@ -565,6 +596,16 @@ namespace MiniProyecto2
             _lightingShader4.SetFloat("spotLight.quadratic", 0.032f);
             _lightingShader4.SetFloat("spotLight.cutOff", (float)Math.Cos(MathHelper.DegreesToRadians(12.5f)));
             _lightingShader4.SetFloat("spotLight.outerCutOff", (float)Math.Cos(MathHelper.DegreesToRadians(12.5f)));
+            _lightingShader4.SetVector3("spotLight2.position", _lightPos);
+            _lightingShader4.SetVector3("spotLight2.direction", _lightPos2);
+            _lightingShader4.SetVector3("spotLight2.ambient", new Vector3(0.2f, 0.2f, 0.2f));
+            _lightingShader4.SetVector3("spotLight2.diffuse", new Vector3(0.2f, 0.2f, 0.2f));
+            _lightingShader4.SetVector3("spotLight2.specular", new Vector3(1.0f, 1.0f, 1.0f));
+            _lightingShader4.SetFloat("spotLight2.constant", 1.0f);
+            _lightingShader4.SetFloat("spotLight2.linear", 0.09f);
+            _lightingShader4.SetFloat("spotLight2.quadratic", 0.032f);
+            _lightingShader4.SetFloat("spotLight2.cutOff", (float)Math.Cos(MathHelper.DegreesToRadians(12.5f)));
+            _lightingShader4.SetFloat("spotLight2.outerCutOff", (float)Math.Cos(MathHelper.DegreesToRadians(12.5f)));
             GL.DrawArrays(PrimitiveType.Triangles, 0, 36);
 
             //Creeper pata1
@@ -596,6 +637,16 @@ namespace MiniProyecto2
             _lightingShader5.SetFloat("spotLight.linear", 0.09f);
             _lightingShader5.SetFloat("spotLight.quadratic", 0.032f);
             _lightingShader5.SetFloat("spotLight.cutOff", (float)Math.Cos(MathHelper.DegreesToRadians(12.5f)));
+            _lightingShader5.SetFloat("spotLight.outerCutOff", (float)Math.Cos(MathHelper.DegreesToRadians(12.5f)));
+            _lightingShader5.SetVector3("spotLight2.position", _lightPos);
+            _lightingShader5.SetVector3("spotLight2.direction", _lightPos2);
+            _lightingShader5.SetVector3("spotLight2.ambient", new Vector3(0.7f, 0.7f, 0.7f));
+            _lightingShader5.SetVector3("spotLight2.diffuse", new Vector3(0.2f, 0.2f, 0.2f));
+            _lightingShader5.SetVector3("spotLight2.specular", new Vector3(1.0f, 1.0f, 1.0f));
+            _lightingShader5.SetFloat("spotLight2.constant", 1.0f);
+            _lightingShader5.SetFloat("spotLight2.linear", 0.09f);
+            _lightingShader5.SetFloat("spotLight2.quadratic", 0.032f);
+            _lightingShader5.SetFloat("spotLight2.cutOff", (float)Math.Cos(MathHelper.DegreesToRadians(12.5f)));
             _lightingShader5.SetFloat("spotLight.outerCutOff", (float)Math.Cos(MathHelper.DegreesToRadians(12.5f)));
             GL.DrawArrays(PrimitiveType.Triangles, 0, 36);
 
@@ -629,6 +680,16 @@ namespace MiniProyecto2
             _lightingShader5.SetFloat("spotLight.quadratic", 0.032f);
             _lightingShader5.SetFloat("spotLight.cutOff", (float)Math.Cos(MathHelper.DegreesToRadians(12.5f)));
             _lightingShader5.SetFloat("spotLight.outerCutOff", (float)Math.Cos(MathHelper.DegreesToRadians(12.5f)));
+            _lightingShader5.SetVector3("spotLight2.position", _lightPos);
+            _lightingShader5.SetVector3("spotLight2.direction", _lightPos2);
+            _lightingShader5.SetVector3("spotLight2.ambient", new Vector3(0.7f, 0.7f, 0.7f));
+            _lightingShader5.SetVector3("spotLight2.diffuse", new Vector3(0.2f, 0.2f, 0.2f));
+            _lightingShader5.SetVector3("spotLight2.specular", new Vector3(1.0f, 1.0f, 1.0f));
+            _lightingShader5.SetFloat("spotLight2.constant", 1.0f);
+            _lightingShader5.SetFloat("spotLight2.linear", 0.09f);
+            _lightingShader5.SetFloat("spotLight2.quadratic", 0.032f);
+            _lightingShader5.SetFloat("spotLight2.cutOff", (float)Math.Cos(MathHelper.DegreesToRadians(12.5f)));
+            _lightingShader5.SetFloat("spotLight2.outerCutOff", (float)Math.Cos(MathHelper.DegreesToRadians(12.5f)));
             GL.DrawArrays(PrimitiveType.Triangles, 0, 36);
 
             //Creeper pata3
@@ -661,6 +722,16 @@ namespace MiniProyecto2
             _lightingShader5.SetFloat("spotLight.quadratic", 0.032f);
             _lightingShader5.SetFloat("spotLight.cutOff", (float)Math.Cos(MathHelper.DegreesToRadians(12.5f)));
             _lightingShader5.SetFloat("spotLight.outerCutOff", (float)Math.Cos(MathHelper.DegreesToRadians(12.5f)));
+            _lightingShader5.SetVector3("spotLight2.position", _lightPos);
+            _lightingShader5.SetVector3("spotLight2.direction", _lightPos2);
+            _lightingShader5.SetVector3("spotLight2.ambient", new Vector3(0.7f, 0.7f, 0.7f));
+            _lightingShader5.SetVector3("spotLight2.diffuse", new Vector3(0.2f, 0.2f, 0.2f));
+            _lightingShader5.SetVector3("spotLight2.specular", new Vector3(1.0f, 1.0f, 1.0f));
+            _lightingShader5.SetFloat("spotLight2.constant", 1.0f);
+            _lightingShader5.SetFloat("spotLight2.linear", 0.09f);
+            _lightingShader5.SetFloat("spotLight2.quadratic", 0.032f);
+            _lightingShader5.SetFloat("spotLight2.cutOff", (float)Math.Cos(MathHelper.DegreesToRadians(12.5f)));
+            _lightingShader5.SetFloat("spotLight2.outerCutOff", (float)Math.Cos(MathHelper.DegreesToRadians(12.5f)));
             GL.DrawArrays(PrimitiveType.Triangles, 0, 36);
 
             //Creeper pata4
@@ -693,6 +764,16 @@ namespace MiniProyecto2
             _lightingShader5.SetFloat("spotLight.quadratic", 0.032f);
             _lightingShader5.SetFloat("spotLight.cutOff", (float)Math.Cos(MathHelper.DegreesToRadians(12.5f)));
             _lightingShader5.SetFloat("spotLight.outerCutOff", (float)Math.Cos(MathHelper.DegreesToRadians(12.5f)));
+            _lightingShader5.SetVector3("spotLight2.position", _lightPos);
+            _lightingShader5.SetVector3("spotLight2.direction", _lightPos2);
+            _lightingShader5.SetVector3("spotLight2.ambient", new Vector3(0.7f, 0.7f, 0.7f));
+            _lightingShader5.SetVector3("spotLight2.diffuse", new Vector3(0.2f, 0.2f, 0.2f));
+            _lightingShader5.SetVector3("spotLight2.specular", new Vector3(1.0f, 1.0f, 1.0f));
+            _lightingShader5.SetFloat("spotLight2.constant", 1.0f);
+            _lightingShader5.SetFloat("spotLight2.linear", 0.09f);
+            _lightingShader5.SetFloat("spotLight2.quadratic", 0.032f);
+            _lightingShader5.SetFloat("spotLight2.cutOff", (float)Math.Cos(MathHelper.DegreesToRadians(12.5f)));
+            _lightingShader5.SetFloat("spotLight2.outerCutOff", (float)Math.Cos(MathHelper.DegreesToRadians(12.5f)));
             GL.DrawArrays(PrimitiveType.Triangles, 0, 36);
             
             //Light Cube
@@ -750,9 +831,6 @@ namespace MiniProyecto2
             if (input.IsKeyDown(Keys.LeftShift))
             {
                 _camera.Position -= _camera.Up * cameraSpeed * (float)e.Time; // Down
-            }
-            if(input.IsKeyDown(Keys.B)) {
-                _lightPos2 = _camera.Position;
             }
             var mouse = MouseState;
 
