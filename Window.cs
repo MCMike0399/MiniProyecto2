@@ -388,7 +388,7 @@ namespace MiniProyecto2
                 creeperPata3 *= Matrix4.CreateTranslation(7.65f,-2.375f, 0.35f);
                 creeperPata4 *= Matrix4.CreateTranslation(7.65f,-2.375f, -0.35f);
 
-                Console.WriteLine("Para mover la cámara utilice: WASD");
+                Console.WriteLine("Para mover la cámara utilice: WASD y ShiftIzq y Space para subirla o bajarla");
                 Console.WriteLine("Para mover la luz se utiliza 'I-K' arriba abajo");
                 Console.WriteLine("Para mover la luz se utiliza 'J-L' izquierda derecha");
                 Console.WriteLine("Para mover la luz se utiliza 'U-O' sobre la tercera dimensión");
