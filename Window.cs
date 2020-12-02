@@ -147,8 +147,8 @@ namespace MiniProyecto2
         -0.20f,  0.20f, -0.20f,  0.0f,  1.0f,  0.0f,  0.0f,  1.0f
     };
 
-        private readonly Vector3 _lightPos = new Vector3(1.2f, 1.0f, 2.0f);
-        private readonly Vector3 _lightPos2 = new Vector3(0.0f,0.0f,0.0f);
+        private Vector3 _lightPos = new Vector3(1.2f, 1.0f, 2.0f);
+        private Vector3 _lightPos2 = new Vector3(0.0f,0.0f,0.0f);
         private int _vertexBufferObject;
         private int _vaoModel;
         private int _vaoLamp;
@@ -369,7 +369,6 @@ namespace MiniProyecto2
         protected override void OnRenderFrame(FrameEventArgs e)
         {
             GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
-
             Matrix4 creeperHead = Matrix4.Identity;
             Matrix4 creeperBody1 = Matrix4.Identity;
             Matrix4 creeperBody2 = Matrix4.Identity;
@@ -832,6 +831,20 @@ namespace MiniProyecto2
             {
                 _camera.Position -= _camera.Up * cameraSpeed * (float)e.Time; // Down
             }
+            if(input.IsKeyDown(Keys.I)) {
+                _lightPos += _lightPos * cameraSpeed * (float)e.Time;
+                _lightPos2 += _lightPos2 * cameraSpeed * (float)e.Time;
+            }
+            if(input.IsKeyDown(Keys.K)) {
+                _lightPos -= _lightPos * cameraSpeed * (float)e.Time;
+                _lightPos2 += _lightPos2 * cameraSpeed * (float)e.Time;
+            }
+            /*if(input.IsKeyDown(Keys.I)) {
+                _lightPos += _lightPos * cameraSpeed * (float)e.Time;
+            }
+            if(input.IsKeyDown(Keys.I)) {
+                _lightPos += _lightPos * cameraSpeed * (float)e.Time;
+            }*/
             var mouse = MouseState;
 
             if (_firstMove)
