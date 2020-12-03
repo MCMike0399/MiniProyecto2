@@ -146,7 +146,49 @@ namespace MiniProyecto2
         -0.20f,  0.20f,  0.20f,  0.0f,  1.0f,  0.0f,  0.0f,  0.0f,
         -0.20f,  0.20f, -0.20f,  0.0f,  1.0f,  0.0f,  0.0f,  1.0f
     };
+    private readonly float[] vertTrans = {
+            -0.5f, -0.5f, -0.5f, // Front face
+             0.5f, -0.5f, -0.5f,
+             0.5f,  0.5f, -0.5f,
+             0.5f,  0.5f, -0.5f,
+            -0.5f,  0.5f, -0.5f,
+            -0.5f, -0.5f, -0.5f,
 
+            -0.5f, -0.5f,  0.5f, // Back face
+             0.5f, -0.5f,  0.5f,
+             0.5f,  0.5f,  0.5f,
+             0.5f,  0.5f,  0.5f,
+            -0.5f,  0.5f,  0.5f,
+            -0.5f, -0.5f,  0.5f,
+
+            -0.5f,  0.5f,  0.5f, // Left face
+            -0.5f,  0.5f, -0.5f,
+            -0.5f, -0.5f, -0.5f,
+            -0.5f, -0.5f, -0.5f,
+            -0.5f, -0.5f,  0.5f,
+            -0.5f,  0.5f,  0.5f,
+
+             0.5f,  0.5f,  0.5f, // Right face
+             0.5f,  0.5f, -0.5f,
+             0.5f, -0.5f, -0.5f,
+             0.5f, -0.5f, -0.5f,
+             0.5f, -0.5f,  0.5f,
+             0.5f,  0.5f,  0.5f,
+
+            -0.5f, -0.5f, -0.5f, // Bottom face
+             0.5f, -0.5f, -0.5f,
+             0.5f, -0.5f,  0.5f,
+             0.5f, -0.5f,  0.5f,
+            -0.5f, -0.5f,  0.5f,
+            -0.5f, -0.5f, -0.5f,
+
+            -0.5f,  0.5f, -0.5f, // Top face
+             0.5f,  0.5f, -0.5f,
+             0.5f,  0.5f,  0.5f,
+             0.5f,  0.5f,  0.5f,
+            -0.5f,  0.5f,  0.5f,
+            -0.5f,  0.5f, -0.5f
+    };
         private Vector3 _lightPos = new Vector3(1.2f, 1.0f, 2.0f);
         private Vector3 _lightPos2 = new Vector3(0.0f,0.0f,0.0f);
         private int _vertexBufferObject;
@@ -182,6 +224,9 @@ namespace MiniProyecto2
         private Shader _lightingShader5;
         private Texture _diffuseMap5;
         private Texture _specularMap5;
+        private Shader translucido;
+        private int vboTrans;
+        private int vaoTrans;
 
         private Camera _camera;
         private bool _firstMove = true;
@@ -358,6 +403,17 @@ namespace MiniProyecto2
             positionLocation = _lampShader.GetAttribLocation("aPos");
             GL.EnableVertexAttribArray(positionLocation);
             GL.VertexAttribPointer(positionLocation, 3, VertexAttribPointerType.Float, false, 8 * sizeof(float), 0);
+
+            //Translucid Cube
+            translucido = new Shader(".\\Shaders\\vert.glsl",".\\Shaders\\frag2.glsl");
+            vboTrans = GL.GenBuffer();
+            GL.BindBuffer(BufferTarget.ArrayBuffer,vboTrans);
+            GL.BufferData(BufferTarget.ArrayBuffer,vertTrans.Length*sizeof(float),vertTrans,BufferUsageHint.StaticDraw);
+            vaoTrans = GL.GenVertexArray();
+            GL.BindVertexArray(vaoTrans);
+            var loc = translucido.GetAttribLocation("aPos");
+            GL.EnableVertexAttribArray(loc);
+            GL.VertexAttribPointer(loc, 3, VertexAttribPointerType.Float, false, 3 * sizeof(float), 0);
 
             _camera = new Camera(Vector3.UnitZ * 3, Size.X / (float)Size.Y);
             CursorGrabbed = true;
@@ -789,7 +845,17 @@ namespace MiniProyecto2
             _lampShader.SetMatrix4("view", _camera.GetViewMatrix());
             _lampShader.SetMatrix4("projection", _camera.GetProjectionMatrix());
             GL.DrawArrays(PrimitiveType.Triangles, 0, 36);
-          
+
+            //Objeto Translucido
+            GL.BindVertexArray(vaoTrans);
+            translucido.Use();
+            Matrix4 transMatrix = Matrix4.Identity;
+            transMatrix *= Matrix4.CreateScale(0.2f);
+            transMatrix *= Matrix4.CreateTranslation(_lightPos*-0.05f);
+            translucido.SetMatrix4("model", transMatrix);
+            translucido.SetMatrix4("view", _camera.GetViewMatrix());
+            translucido.SetMatrix4("projection", _camera.GetProjectionMatrix());
+            GL.DrawArrays(PrimitiveType.Triangles, 0, 36);
             SwapBuffers();
 
             base.OnRenderFrame(e);
